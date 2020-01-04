@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="apple-touch-icon" type="image/png" href="https://static.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
+<meta name="apple-mobile-web-app-title" content="CodePen">
+<title>Home</title>
+<link rel="icon" type="image/png" href="image/icono.png">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/vuetify/1.0.18/vuetify.min.css'>
+<style>
+.login-form {
+  max-width: 500px;
+}
+</style>
+<script>
+  window.console = window.console || function(t) {};
+</script>
+<script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+<body translate="no">
+    <div id="app" >
+    <v-app ligth="ligth">
+        <div>
+            <v-toolbar  color="teal lighten-3">
+            
+                <v-toolbar-title class="white--text">HOME <v-icon medium dark>theaters</v-icon></v-toolbar-title>
+                   
+                <v-spacer></v-spacer>
+                <v-btn icon medium dark>
+                    <v-icon>search</v-icon>
+                  </v-btn>
+
+                <v-btn icon medium dark>
+                    <v-icon  medium dark>account_circle</v-icon>
+                </v-btn>
+                
+                <v-btn icon medium dark>
+                    <v-icon  medium dark>forward</v-icon>
+                </v-btn>
+                  
+                  
+                </v-toolbar>
+                <v-spacer></v-spacer>
+                
+              <v-toolbar flat color="white">
+                <v-toolbar-title>Peliculas</v-toolbar-title>
+                <v-spacer></v-spacer>
+        </div>
+           
+
+        <div>
+            <v-card class="mx-auto" max-width="344">
+                <v-img src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg" height="200px"></v-img>
+  
+                <v-card-title>
+                   Titulo Pelicula
+                </v-card-title>
+  
+                <v-card-subtitle>
+                Genero
+                </v-card-subtitle>
+
+                <v-spacer></v-spacer>
+  
+                <v-btn color="blue" text>Comparar</v-btn>
+  
+                <v-spacer></v-spacer>
+  
+                <v-btn icon  @click="show = !show">
+                <v-icon>{{ show ? 'keyboard_arrow_down' : 'keyboard_arrow_down' }}</v-icon>
+                </v-btn>
+      </v-card-actions>
+      <v-expand-transition>
+        <div v-show="show">
+          <v-divider></v-divider>
+  
+          <v-card-text>
+            Caracteristicas de las peliculas
+          </v-card-text>
+        </div>
+      </v-expand-transition>
+    </v-card>
+
+        </div>
+
+                
+            
+            <script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-de7e2ef6bfefd24b79a3f68b414b87b8db5b08439cac3f1012092b2290c719cd.js"></script>
+            <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.min.js'></script>
+            <script src='https://cdnjs.cloudflare.com/ajax/libs/vuetify/1.0.18/vuetify.min.js'></script>
+            <script src='https://unpkg.com/js-yaml/dist/js-yaml.min.js'></script>
+            <script id="rendered-js">
+                const vm = new Vue({
+                    el: '#app',
+                    data: () => ({
+                    show: false,
+                    }),
+                });
+            </script>
+</body>
+</html>
