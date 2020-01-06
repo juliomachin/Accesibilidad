@@ -25,71 +25,61 @@
 <body translate="no">
 <div id="app">
 <v-app ligth>
-<v-content>
-    <div>
         <v-toolbar  color="teal lighten-3">
-            
             <v-toolbar-title class="white--text">HOME <v-icon medium dark>theaters</v-icon></v-toolbar-title>
-               
             <v-spacer></v-spacer>
             <v-btn icon medium dark>
                 <v-icon>search</v-icon>
               </v-btn>
-
             <v-btn icon medium dark>
                 <v-icon  medium dark>account_circle</v-icon>
             </v-btn>
-            
             <v-btn icon medium dark>
                 <v-icon  medium dark>forward</v-icon>
             </v-btn>
-              
-              
             </v-toolbar>
-            <v-spacer></v-spacer>
-            
-          <v-toolbar flat color="white">
-            <v-toolbar-title>Peliculas</v-toolbar-title>
-            <v-spacer></v-spacer>
-    </div>
-</v-content>
-<v-content>
-    <v-card max-width="344" class="mx-auto">
-  
-        <v-card-title>
-           Titulo Pelicula
-        </v-card-title>
-
-        <v-img src="imagen.jpg" height="194"></v-img>
-
-        <v-card-subtitle>Genero</v-card-subtitle>
-
-        <v-spacer></v-spacer>
-
-        <v-btn color="blue" text>Comparar</v-btn>
-
-        <v-spacer></v-spacer>
-
-        <v-btn icon  @click="show = !show">
-        <v-icon>{{ show ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}</v-icon>
-        </v-btn>
-</v-card-actions>
-<v-expand-transition>
-<div v-show="show">
-  <v-divider></v-divider>
-
-  <v-card-text>
-    Caracteristicas de las peliculas
-  </v-card-text>
-</div>
-</v-expand-transition>
-    </v-card>
-</v-content>
+            <v-spacer></v-spacer>           
+<v-container v-for="align in alignments" :key="align" class="grey lighten-5 mb-6">
+    <v-row :align="align" no-gutters style="height: 150px;" >
+      <v-col >
+        <v-card class="mx-auto my-12" width="300" height="300"  outlined tile >
+          <v-img src="https://cdn.vuetifyjs.com/images/cards/cooking.png" height="150" ></v-img>
+          <v-card-title>
+            Titulo Pelicula
+         </v-card-title>
+ 
+        
+ 
+         <v-card-subtitle>Genero</v-card-subtitle>
+ 
+         <v-spacer></v-spacer>
+ 
+         <v-btn color="blue" text>Comparar</v-btn>
+ 
+         <v-spacer></v-spacer>
+ 
+         <v-btn icon  @click="show = !show">
+         <v-icon>{{ show ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}</v-icon>
+         </v-btn>
+        </v-card-actions>
+        <v-expand-transition>
+        <div v-show="show">
+          <v-divider></v-divider>
+        
+          <v-card-text>
+            Caracteristicas de las peliculas
+          </v-card-text>
+        </div>
+        </v-expand-transition>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
 <v-footer app="app">
 <v-flex class="text-xs-center">© 2020. All rights reserved.</v-flex>
 </v-footer>
 </v-app>
-</div>
+
 <script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-de7e2ef6bfefd24b79a3f68b414b87b8db5b08439cac3f1012092b2290c719cd.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/vuetify/1.0.18/vuetify.min.js'></script>
@@ -99,6 +89,11 @@ const vm = new Vue({
   el: '#app',
   data: () => ({
         show: false,
+        alignments: [
+          'start',
+          'center',
+          'end',
+        ],
         }),
   });
 //# sourceURL=pen.js
