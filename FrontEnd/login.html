@@ -42,7 +42,7 @@
 <v-text-field v-model="user.email" light="light" prepend-icon="email" label="Email" type="email"></v-text-field>
 <v-text-field v-model="user.password" light="light" prepend-icon="lock" label="Password" type="password"></v-text-field>
 <v-checkbox v-if="options.isLoggingIn" v-model="options.shouldStayLoggedIn" light="light" label="Mantenerse logueado" hide-details="hide-details"></v-checkbox>
-<v-btn v-if="options.isLoggingIn" @click.prevent="" type="submit" href="home.html">Entrar</v-btn>
+<v-btn v-if="options.isLoggingIn" @click="inicia" >Entrar</v-btn>
 <v-btn v-else="v-else" block="block" type="submit" @click.prevent="options.isLoggingIn = true">Registrate</v-btn>
 </v-form>
 </v-card-text>
@@ -64,17 +64,32 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/vuetify/1.0.18/vuetify.min.js'></script>
 <script src='https://unpkg.com/js-yaml/dist/js-yaml.min.js'></script>
 <script id="rendered-js">
+
+
 const vm = new Vue({
   el: '#app',
   data: {
     user: {
-      // email: 'admin@example.com',
-      // password: 'admin',
-      // name: 'John Doe',
+      email: '',
+      password: '',
+      //name: 'John Doe',
     },
     options: {
       isLoggingIn: true,
-      shouldStayLoggedIn: true } } });
+      shouldStayLoggedIn: true 
+    } 
+  }, 
+  methods:{
+    inicia:function(){
+      if(this.user.email == '' || this.user.password == ''){
+        alert("Error, uno de los campos esta vacio.")
+      }else{
+        window.location = "home.html"
+       //this.valida
+      }
+    },
+  }
+     });
 //# sourceURL=pen.js
     </script>
 </body>
