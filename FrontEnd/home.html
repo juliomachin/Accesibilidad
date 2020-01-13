@@ -60,7 +60,7 @@
                                 </v-btn>
                                 <v-spacer></v-spacer>
                                 <p class="grey--text">{{film.genero}}</p>
-                                <v-btn class="info" @click="compara()" text>Comparar</v-btn>
+                                <v-btn class="info" @click="compara(event.toElement.offsetParent.offsetParent.children[1].children[0].innerHTML)" text>Comparar</v-btn>
                             </v-container>
 
                             <v-btn icon @click="film.show = !film.show">
@@ -387,8 +387,8 @@
             }),
 
             methods:{
-                compara:function(){
-                    alert(this.id1)
+                compara:function(el){
+                    console.log(el)
                 }
             }
         });
