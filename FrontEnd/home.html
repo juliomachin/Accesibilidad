@@ -98,9 +98,9 @@
         new Vue({
             el: '#app',
             data: () => ({
-                
-                id1:"",
-                id2:"",
+
+                id1: "",
+                id2: "",
 
                 films: [{
                     title: 'El Padrino',
@@ -111,7 +111,7 @@
                     rating: 5,
                     datos: '1972, ' +
                         'Francis Ford Coppola',
-                    caracteristicas: " 3 Oscars: Mejor película, Actor (Marlon Brando), Guión adaptado. 11[10*] nom.\r\n1972: 5 Globos de Oro: Película (Drama), Director, Actor (Brando), Guión y BSO\r\n1972: Premios BAFTA: Mejor música. 5 nominaciones, incluyendo Mejor actor (Brando)\r\n1972: Círculo de Críticos de Nueva York: Mejor actor secundario (Duvall). 4 nominaciones\r\n1972: National Board of Review: Mejor actor sec. (Pacino) y Mejores 10 films del año\r\n1972: Sindicato de Directores (DGA): Mejor director\r\n1972: Sindicato de Guionistas (WGA): Mejor guión adaptado drama\r\n1972: Premios David di Donatello: Mejor film extranjero y Premio Especial (Al Pacino)"
+                    caracteristicas: '\r\n3 Oscars: Mejor película, Actor(Marlon Brando)\r\nGuión adaptado.\r\n1972: 5 Globos de Oro: Película (Drama)\r\nDirector, Actor (Brando), Guión y BSO"\r\n1972: Premios BAFTA: Mejor música.\r\n5 nominaciones,incluyendo Mejor actor (Brando)\r\n1972: Círculo de Críticos de Nueva York:\r\nMejor actor secundario (Duvall).\r\n1972: National Board of Review:\r\nMejor actor sec. (Pacino) y Mejores 10 films\r\ndel año\r\n1972: Sindicato de Directores (DGA):\r\nMejor director\r\n1972: Sindicato de Guionistas (WGA):\r\nMejor guión adaptado drama\r\n1972: Premios David di Donatello:\r\nMejor film extranjero y Premio Especial\r\n(Al Pacino)'
 
                 }, {
                     title: 'EL Padrino. Parte II',
@@ -122,7 +122,7 @@
                     genero: 'Drama',
                     rating: 5,
                     datos: '1974, Francis Ford Coppola',
-                    caracteristicas: ''
+                    caracteristicas: '\r\n6 Oscars:Película, Director, Actor de reparto.\r\n1974:Globos de Oro: 6 nominaciones,incluyendo\r\nMejor película - Drama\r\n1974: Círculo de Críticos de Nueva York:\r\n4 nominaciones, incluyendo Mejor película\r\n1974: Sindicato de Directores (DGA):\r\nMejor director\r\n1974: Sindicato de Guionistas (WGA):\r\nMejor guión adaptado drama\r\n1975: Premios BAFTA:\r\nMejor actor (Al Pacino).'
                 }, {
                     title: 'La lista de Schindler',
                     imagen: '../imagenes/3.jpg',
@@ -386,8 +386,8 @@
                 }, ],
             }),
 
-            methods:{
-                compara:function(el){
+            methods: {
+                compara: function(el) {
                     console.log(el)
                 }
             }
