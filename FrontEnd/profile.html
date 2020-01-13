@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="apple-touch-icon" type="image/png" href="https://static.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
+    <meta name="apple-mobile-web-app-title" content="CodePen">
+    <title>Perfil</title>
+    <link rel="icon" type="image/png" href="image/icono.png">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/vuetify/1.0.18/vuetify.min.css'>
+    <style>
+        .login-form {
+            max-width: 500px;
+        }
+    </style>
+    <script>
+        window.console = window.console || function(t) {};
+    </script>
+    <script>
+        if (document.location.search.match(/type=embed/gi)) {
+            window.parent.postMessage("resize", "*");
+        }
+    </script>
+</head>
+
+<body translate="no">
+    <div id="app">
+        <v-app dark="dark">
+            <v-toolbar color="teal lighten-3">
+                <v-toolbar-title class="white--text">HOME
+                    <v-btn icon medium dark href="home.html">
+                        <v-icon medium dark>theaters</v-icon>
+                    </v-btn>
+
+                </v-toolbar-title>
+                <v-spacer></v-spacer>
+                <v-btn icon medium dark href="home.html">
+                    <v-icon>home</v-icon>
+                </v-btn>
+                <v-btn icon medium dark href="login.html">
+                    <v-icon medium dark>forward</v-icon>
+                </v-btn>
+            </v-toolbar>
+
+            <v-content>
+                <v-container fill-height="fill-height">
+
+
+                    <v-layout align-center="align-center" justify-center="justify-center">
+                        <v-flex class="login-form text-xs-center">
+                            <div class="display-1 mb-3">
+                                <v-icon class="mr-2" large="large">person</v-icon> Perfil
+                            </div>
+                            <v-card light="light" class="ma-2" align-start="align-start" justify-start="justify-start">
+                                <v-card-text>
+                                    <div class="subheading">
+                                        <template v-if="options.isLoggingIn">Información</template>
+                                    </div>
+                                    <v-form>
+                                        <v-text-field v-model="user.name" light="light" prepend-icon="account_circle" label="Nombre" type="nombre"></v-text-field>
+                                        <v-text-field :value="user.date_birthday && user.date_birthday.toISOString().split('T')[0]" light="light " prepend-icon="date_range " label="Fecha de Nacimiento " type="date "></v-text-field>
+                                        <v-text-field v-model="user.email " light="light " prepend-icon="email " label="Email " type="email "></v-text-field>
+                                    </v-form>
+                                </v-card-text>
+                            </v-card>
+                            <v-spacer></v-spacer>
+                            <v-card light="light " class="ma-2 ">
+                                <v-card-text>
+                                    <div class="subheading ">
+                                        <template v-if="options.isLoggingIn ">Cambiar Contraseña</template>
+                                    </div>
+                                    <v-form>
+                                        <v-text-field v-model="user.password " light="light " prepend-icon="lock " label=" New Password " type="password "></v-text-field>
+                                        <v-text-field v-model="user.new_password " light="light " prepend-icon="lock " label=" Repetir Password " type="password "></v-text-field>
+
+
+                                        <v-btn color="success " max-height="50px " type="submit " @click="cambia ">Modificar</v-btn>
+                                    </v-form>
+                                </v-card-text>
+                            </v-card>
+                        </v-flex>
+                    </v-layout>
+                </v-container>
+
+
+
+            </v-content>
+            <v-footer app="app ">
+                <v-flex class="text-xs-center ">© 2020. All rights reserved.</v-flex>
+            </v-footer>
+        </v-app>
+    </div>
+
+
+    <script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-de7e2ef6bfefd24b79a3f68b414b87b8db5b08439cac3f1012092b2290c719cd.js "></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vuetify/1.0.18/vuetify.min.js'></script>
+    <script src='https://unpkg.com/js-yaml/dist/js-yaml.min.js'></script>
+    <script id="rendered-js ">
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                user: {
+                    email: 'jmachr00@unileon.com',
+                    password: '',
+                    new_password: '',
+                    name: 'Julio Machin',
+                    date_birthday: new Date('1996-08-16T10:20:30Z')
+                },
+                options: {
+                    isLoggingIn: true,
+                    shouldStayLoggedIn: true
+                }
+            },
+            methods: {
+                cambia: function() {
+                    if (this.user.password == '' || this.user.new_password == '') {
+                        alert("Error, las contraseñas estan vacias. ")
+                    } else if (this.user.password != this.user.new_password) {
+                        alert("Error, las contraseñas deben ser iguales. ")
+                    } else {
+                        window.location = "profile.html "
+                        alert("Contraseña modificada ")
+                    }
+                },
+            }
+        });
+    </script>
+</body>
+
+</html>

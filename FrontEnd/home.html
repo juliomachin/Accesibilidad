@@ -1,102 +1,391 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<link rel="apple-touch-icon" type="image/png" href="https://static.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
-<meta name="apple-mobile-web-app-title" content="CodePen">
-<title>Registro</title>
-<link rel="icon" type="image/png" href="image/icono.png">
-<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons'>
-<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/vuetify/1.0.18/vuetify.min.css'>
-<style>
-.login-form {
-  max-width: 500px;
-}
-</style>
-<script>
-  window.console = window.console || function(t) {};
-</script>
-<script>
-  if (document.location.search.match(/type=embed/gi)) {
-    window.parent.postMessage("resize", "*");
-  }
-</script>
-</head>
-<body translate="no">
-<div id="app">
-<v-app ligth>
-        <v-toolbar  color="teal lighten-3">
-            <v-toolbar-title class="white--text">HOME <v-icon medium dark>theaters</v-icon></v-toolbar-title>
-            <v-spacer></v-spacer>
-            <v-btn icon medium dark>
-                <v-icon>search</v-icon>
-              </v-btn>
-            <v-btn icon medium dark>
-                <v-icon  medium dark>account_circle</v-icon>
-            </v-btn>
-            <v-btn icon medium dark>
-                <v-icon  medium dark>forward</v-icon>
-            </v-btn>
-            </v-toolbar>
-            <v-spacer></v-spacer>           
-<v-container v-for="align in alignments" :key="align" class="grey lighten-5 mb-6">
-    <v-row :align="align" no-gutters style="height: 150px;" >
-      <v-col >
-        <v-card class="mx-auto my-12" width="300" height="300"  outlined tile >
-          <v-img src="https://cdn.vuetifyjs.com/images/cards/cooking.png" height="150" ></v-img>
-          <v-card-title>
-            Titulo Pelicula
-         </v-card-title>
- 
-        
- 
-         <v-card-subtitle>Genero</v-card-subtitle>
- 
-         <v-spacer></v-spacer>
- 
-         <v-btn color="blue" text>Comparar</v-btn>
- 
-         <v-spacer></v-spacer>
- 
-         <v-btn icon  @click="show = !show">
-         <v-icon>{{ show ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}</v-icon>
-         </v-btn>
-        </v-card-actions>
-        <v-expand-transition>
-        <div v-show="show">
-          <v-divider></v-divider>
-        
-          <v-card-text>
-            Caracteristicas de las peliculas
-          </v-card-text>
-        </div>
-        </v-expand-transition>
-        </v-card>
-      </v-col>
-    </v-row>
-  </v-container>
-<v-footer app="app">
-<v-flex class="text-xs-center">© 2020. All rights reserved.</v-flex>
-</v-footer>
-</v-app>
 
-<script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-de7e2ef6bfefd24b79a3f68b414b87b8db5b08439cac3f1012092b2290c719cd.js"></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/vuetify/1.0.18/vuetify.min.js'></script>
-<script src='https://unpkg.com/js-yaml/dist/js-yaml.min.js'></script>
-<script id="rendered-js">
-const vm = new Vue({
-  el: '#app',
-  data: () => ({
-        show: false,
-        alignments: [
-          'start',
-          'center',
-          'end',
-        ],
-        }),
-  });
-//# sourceURL=pen.js
+<head>
+    <meta charset="UTF-8">
+    <link rel="apple-touch-icon" type="image/png" href="https://static.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
+    <meta name="apple-mobile-web-app-title" content="CodePen">
+    <title>Home</title>
+    <link rel="icon" type="image/png" href="image/icono.png">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/vuetify/1.0.18/vuetify.min.css'>
+    <style>
+        .login-form {
+            max-width: 500px;
+        }
+    </style>
+    <script>
+        window.console = window.console || function(t) {};
+    </script>
+    <script>
+        if (document.location.search.match(/type=embed/gi)) {
+            window.parent.postMessage("resize", "*");
+        }
+    </script>
+</head>
+
+<body translate="no">
+    <div id="app">
+        <v-app dark="dark">
+            <v-toolbar color="teal lighten-3">
+                <v-toolbar-title class="white--text">HOME
+                    <v-icon medium dark>theaters</v-icon>
+                </v-toolbar-title>
+                <v-spacer></v-spacer>
+                <v-btn icon medium dark aria-label="Search">
+                    <v-icon>search</v-icon>
+                </v-btn>
+                <v-btn icon medium dark href="profile.html">
+                    <v-icon medium dark>account_circle</v-icon>
+                </v-btn>
+                <v-btn icon medium dark href="login.html">
+                    <v-icon medium dark>forward</v-icon>
+                </v-btn>
+            </v-toolbar>
+
+            <v-content>
+                <v-layout row wrap>
+                    <v-flex v-for="film in films" :key="film.title" xs4>
+                        <v-card class="elevation-0 ma-3" light="light">
+                            <img :src="film.imagen" class="image" alt="lorem" width="100%" height="700">
+                            <v-card-title primary-title class="layout justify-center">
+                                <h1>{{film.title}}</h1>
+                            </v-card-title>
+
+
+
+                            <v-container class="layout justify-center ">
+                                <v-btn disabled>
+                                    <star-rating v-model="film.rating" half-increments hover></star-rating>
+                                </v-btn>
+                                <v-spacer></v-spacer>
+                                <p class="grey--text">{{film.genero}}</p>
+                                <v-btn class="info" text>Comparar</v-btn>
+                            </v-container>
+
+                            <v-btn icon @click="film.show = !film.show">
+                                <v-icon color="black">{{ film.show ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}</v-icon>
+                            </v-btn>
+
+                            </v-card-actions>
+                            <v-expand-transition>
+                                <div v-show="film.show">
+                                    <v-divider></v-divider>
+                                    <v-card-text>
+                                        {{film.datos}}
+                                    </v-card-text>
+                                </div>
+                            </v-expand-transition>
+                        </v-card>
+                    </v-flex>
+                </v-layout>
+
+            </v-content>
+            <v-footer app="app">
+                <v-flex class="text-xs-center">© 2020. All rights reserved.</v-flex>
+            </v-footer>
+        </v-app>
+    </div>
+
+
+    <script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-de7e2ef6bfefd24b79a3f68b414b87b8db5b08439cac3f1012092b2290c719cd.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vuetify/1.0.18/vuetify.min.js'></script>
+    <script src='https://unpkg.com/js-yaml/dist/js-yaml.min.js'></script>
+    <script src="https://unpkg.com/vue-star-rating/dist/star-rating.min.js"></script>
+    <script id="rendered-js">
+        Vue.component('star-rating', VueStarRating.default);
+        new Vue({
+            el: '#app',
+            data: () => ({
+
+                films: [{
+                    title: 'El Padrino',
+                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/1.jpg',
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Drama',
+                    rating: 5,
+                    datos: '1972' +
+                        ' 3 Premios Oscar',
+                    caracteristicas: " 3 Oscars: Mejor película, Actor (Marlon Brando), Guión adaptado. 11[10*] nom.\r\n1972: 5 Globos de Oro: Película (Drama), Director, Actor (Brando), Guión y BSO\r\n1972: Premios BAFTA: Mejor música. 5 nominaciones, incluyendo Mejor actor (Brando)\r\n1972: Círculo de Críticos de Nueva York: Mejor actor secundario (Duvall). 4 nominaciones\r\n1972: National Board of Review: Mejor actor sec. (Pacino) y Mejores 10 films del año\r\n1972: Sindicato de Directores (DGA): Mejor director\r\n1972: Sindicato de Guionistas (WGA): Mejor guión adaptado drama\r\n1972: Premios David di Donatello: Mejor film extranjero y Premio Especial (Al Pacino)"
+
+                }, {
+                    title: 'Los odi',
+                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/2.jpg',
+                    rating: 5,
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Drama',
+                    rating: 5,
+                    datos: '1972. ',
+                    caracteristicas: ''
+                }, {
+                    title: 'Pelicula 3',
+                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/3.jpg',
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Drama',
+                    rating: 5,
+                    datos: '1972' + ' 3 Premios Oscar',
+                    caracteristicas: ''
+                }, {
+                    title: 'Pelicula 4',
+                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/4.jpg',
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Drama',
+                    rating: 5,
+                    datos: '1972. ',
+                    caracteristicas: ''
+                }, {
+                    title: 'Pelicula 5',
+                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/5.jpg',
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Drama',
+                    rating: 5,
+                    datos: '1972. ',
+                    caracteristicas: ''
+                }, {
+                    title: 'Pelicula 6',
+                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/6.jpg',
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Drama',
+                    rating: 5,
+                    datos: '1972. ',
+                    caracteristicas: ''
+                }, {
+                    title: 'El Padrino',
+                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/1.jpg',
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Drama',
+                    rating: 5,
+                    datos: '1972. ',
+                    caracteristicas: " 3 Oscars: Mejor película, Actor (Marlon Brando), Guión adaptado. 11[10*] nom.\r\n1972: 5 Globos de Oro: Película (Drama), Director, Actor (Brando), Guión y BSO\r\n1972: Premios BAFTA: Mejor música. 5 nominaciones, incluyendo Mejor actor (Brando)\r\n1972: Círculo de Críticos de Nueva York: Mejor actor secundario (Duvall). 4 nominaciones\r\n1972: National Board of Review: Mejor actor sec. (Pacino) y Mejores 10 films del año\r\n1972: Sindicato de Directores (DGA): Mejor director\r\n1972: Sindicato de Guionistas (WGA): Mejor guión adaptado drama\r\n1972: Premios David di Donatello: Mejor film extranjero y Premio Especial (Al Pacino)"
+
+                }, {
+                    title: 'Los odi',
+                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/2.jpg',
+                    rating: 5,
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Drama',
+                    rating: 5,
+                    datos: '1972. ',
+                    caracteristicas: ''
+                }, {
+                    title: 'Pelicula 3',
+                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/3.jpg',
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Drama',
+                    rating: 5,
+                    datos: '1972. ',
+                    caracteristicas: ''
+                }, {
+                    title: 'Pelicula 4',
+                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/4.jpg',
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Drama',
+                    rating: 5,
+                    datos: '1972. ',
+                    caracteristicas: ''
+                }, {
+                    title: 'Pelicula 5',
+                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/5.jpg',
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Drama',
+                    rating: 5,
+                    datos: '1972. ',
+                    caracteristicas: ''
+                }, {
+                    title: 'Pelicula 6',
+                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/6.jpg',
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Drama',
+                    rating: 5,
+                    datos: '1972. ',
+                    caracteristicas: ''
+                }, {
+                    title: 'El Padrino',
+                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/1.jpg',
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Drama',
+                    rating: 5,
+                    datos: '1972. ',
+                    caracteristicas: " 3 Oscars: Mejor película, Actor (Marlon Brando), Guión adaptado. 11[10*] nom.\r\n1972: 5 Globos de Oro: Película (Drama), Director, Actor (Brando), Guión y BSO\r\n1972: Premios BAFTA: Mejor música. 5 nominaciones, incluyendo Mejor actor (Brando)\r\n1972: Círculo de Críticos de Nueva York: Mejor actor secundario (Duvall). 4 nominaciones\r\n1972: National Board of Review: Mejor actor sec. (Pacino) y Mejores 10 films del año\r\n1972: Sindicato de Directores (DGA): Mejor director\r\n1972: Sindicato de Guionistas (WGA): Mejor guión adaptado drama\r\n1972: Premios David di Donatello: Mejor film extranjero y Premio Especial (Al Pacino)"
+
+                }, {
+                    title: 'Los odi',
+                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/2.jpg',
+                    rating: 5,
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Drama',
+                    rating: 5,
+                    datos: '1972. ',
+                    caracteristicas: ''
+                }, {
+                    title: 'Pelicula 3',
+                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/3.jpg',
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Drama',
+                    rating: 5,
+                    datos: '1972. ',
+                    caracteristicas: ''
+                }, {
+                    title: 'Pelicula 4',
+                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/4.jpg',
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Drama',
+                    rating: 5,
+                    datos: '1972. ',
+                    caracteristicas: ''
+                }, {
+                    title: 'Pelicula 5',
+                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/5.jpg',
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Drama',
+                    rating: 5,
+                    datos: '1972. ',
+                    caracteristicas: ''
+                }, {
+                    title: 'Pelicula 6',
+                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/6.jpg',
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Drama',
+                    rating: 5,
+                    datos: '1972. ',
+                    caracteristicas: ''
+                }, {
+                    title: 'El Padrino',
+                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/1.jpg',
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Drama',
+                    rating: 5,
+                    datos: '1972. ',
+                    caracteristicas: " 3 Oscars: Mejor película, Actor (Marlon Brando), Guión adaptado. 11[10*] nom.\r\n1972: 5 Globos de Oro: Película (Drama), Director, Actor (Brando), Guión y BSO\r\n1972: Premios BAFTA: Mejor música. 5 nominaciones, incluyendo Mejor actor (Brando)\r\n1972: Círculo de Críticos de Nueva York: Mejor actor secundario (Duvall). 4 nominaciones\r\n1972: National Board of Review: Mejor actor sec. (Pacino) y Mejores 10 films del año\r\n1972: Sindicato de Directores (DGA): Mejor director\r\n1972: Sindicato de Guionistas (WGA): Mejor guión adaptado drama\r\n1972: Premios David di Donatello: Mejor film extranjero y Premio Especial (Al Pacino)"
+
+                }, {
+                    title: 'Los odi',
+                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/2.jpg',
+                    rating: 5,
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Drama',
+                    rating: 5,
+                    datos: '1972. ',
+                    caracteristicas: ''
+                }, {
+                    title: 'Pelicula 3',
+                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/3.jpg',
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Drama',
+                    rating: 5,
+                    datos: '1972. ',
+                    caracteristicas: ''
+                }, {
+                    title: 'Pelicula 4',
+                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/4.jpg',
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Drama',
+                    rating: 5,
+                    datos: '1972. ',
+                    caracteristicas: ''
+                }, {
+                    title: 'Pelicula 5',
+                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/5.jpg',
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Drama',
+                    rating: 5,
+                    datos: '1972. ',
+                    caracteristicas: ''
+                }, {
+                    title: 'Pelicula 6',
+                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/6.jpg',
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Drama',
+                    rating: 5,
+                    datos: '1972. ',
+                    caracteristicas: ''
+                }, {
+                    title: 'El Padrino',
+                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/1.jpg',
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Drama',
+                    rating: 5,
+                    datos: '1972. ',
+                    caracteristicas: " 3 Oscars: Mejor película, Actor (Marlon Brando), Guión adaptado. 11[10*] nom.\r\n1972: 5 Globos de Oro: Película (Drama), Director, Actor (Brando), Guión y BSO\r\n1972: Premios BAFTA: Mejor música. 5 nominaciones, incluyendo Mejor actor (Brando)\r\n1972: Círculo de Críticos de Nueva York: Mejor actor secundario (Duvall). 4 nominaciones\r\n1972: National Board of Review: Mejor actor sec. (Pacino) y Mejores 10 films del año\r\n1972: Sindicato de Directores (DGA): Mejor director\r\n1972: Sindicato de Guionistas (WGA): Mejor guión adaptado drama\r\n1972: Premios David di Donatello: Mejor film extranjero y Premio Especial (Al Pacino)"
+
+                }, {
+                    title: 'Los odi',
+                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/2.jpg',
+                    rating: 5,
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Drama',
+                    rating: 5,
+                    datos: '1972. ',
+                    caracteristicas: ''
+                }, {
+                    title: 'Pelicula 3',
+                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/3.jpg',
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Drama',
+                    rating: 5,
+                    datos: '1972. ',
+                    caracteristicas: ''
+                }, {
+                    title: 'Pelicula 4',
+                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/4.jpg',
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Drama',
+                    rating: 5,
+                    datos: '1972. ',
+                    caracteristicas: ''
+                }, {
+                    title: 'Pelicula 5',
+                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/5.jpg',
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Drama',
+                    rating: 5,
+                    datos: '1972. ',
+                    caracteristicas: ''
+                }, {
+                    title: 'Pelicula 6',
+                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/6.jpg',
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Drama',
+                    rating: 5,
+                    datos: '1972. ',
+                    caracteristicas: ''
+                }, ],
+            }),
+        });
+
+        //# sourceURL=pen.js
     </script>
 </body>
+
 </html>
