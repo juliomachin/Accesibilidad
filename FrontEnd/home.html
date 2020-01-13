@@ -60,7 +60,7 @@
                                 </v-btn>
                                 <v-spacer></v-spacer>
                                 <p class="grey--text">{{film.genero}}</p>
-                                <v-btn class="info" text>Comparar</v-btn>
+                                <v-btn class="info" @click="compara()" text>Comparar</v-btn>
                             </v-container>
 
                             <v-btn icon @click="film.show = !film.show">
@@ -98,58 +98,173 @@
         new Vue({
             el: '#app',
             data: () => ({
+                
+                id1:"",
+                id2:"",
 
                 films: [{
                     title: 'El Padrino',
-                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/1.jpg',
+                    imagen: '../imagenes/1.jpg',
                     show: false,
                     pais: 'Estados Unidos',
                     genero: 'Drama',
                     rating: 5,
-                    datos: '1972' +
-                        ' 3 Premios Oscar',
+                    datos: '1972, ' +
+                        'Francis Ford Coppola',
                     caracteristicas: " 3 Oscars: Mejor película, Actor (Marlon Brando), Guión adaptado. 11[10*] nom.\r\n1972: 5 Globos de Oro: Película (Drama), Director, Actor (Brando), Guión y BSO\r\n1972: Premios BAFTA: Mejor música. 5 nominaciones, incluyendo Mejor actor (Brando)\r\n1972: Círculo de Críticos de Nueva York: Mejor actor secundario (Duvall). 4 nominaciones\r\n1972: National Board of Review: Mejor actor sec. (Pacino) y Mejores 10 films del año\r\n1972: Sindicato de Directores (DGA): Mejor director\r\n1972: Sindicato de Guionistas (WGA): Mejor guión adaptado drama\r\n1972: Premios David di Donatello: Mejor film extranjero y Premio Especial (Al Pacino)"
 
                 }, {
-                    title: 'Los odi',
-                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/2.jpg',
+                    title: 'EL Padrino. Parte II',
+                    imagen: '../imagenes/2.jpg',
                     rating: 5,
                     show: false,
                     pais: 'Estados Unidos',
                     genero: 'Drama',
                     rating: 5,
-                    datos: '1972. ',
+                    datos: '1974, Francis Ford Coppola',
                     caracteristicas: ''
                 }, {
-                    title: 'Pelicula 3',
-                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/3.jpg',
+                    title: 'La lista de Schindler',
+                    imagen: '../imagenes/3.jpg',
                     show: false,
                     pais: 'Estados Unidos',
                     genero: 'Drama',
                     rating: 5,
-                    datos: '1972' + ' 3 Premios Oscar',
+                    datos: '1993, Steven Spielberg',
                     caracteristicas: ''
                 }, {
-                    title: 'Pelicula 4',
-                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/4.jpg',
+                    title: 'Cadena perpetua',
+                    imagen: '../imagenes/4.jpg',
                     show: false,
                     pais: 'Estados Unidos',
                     genero: 'Drama',
                     rating: 5,
-                    datos: '1972. ',
+                    datos: '1994, Frank Darabont',
                     caracteristicas: ''
                 }, {
-                    title: 'Pelicula 5',
-                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/5.jpg',
+                    title: 'Pulp Fiction',
+                    imagen: '../imagenes/5.jpg',
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Thriller',
+                    rating: 5,
+                    datos: '1994, Quentin Tarantino',
+                    caracteristicas: ''
+                }, {
+                    title: 'El golpe',
+                    imagen: '../imagenes/6.jpg',
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Intriga',
+                    rating: 5,
+                    datos: '1973, George Roy Hill',
+                    caracteristicas: ''
+                }, {
+                    title: 'La vida es bella',
+                    imagen: '../imagenes/7.jpg',
+                    show: false,
+                    pais: 'Italia',
+                    genero: 'Drama',
+                    rating: 5,
+                    datos: '1997, Roberto Benigni',
+                    caracteristicas: " 3 Oscars: Mejor película, Actor (Marlon Brando), Guión adaptado. 11[10*] nom.\r\n1972: 5 Globos de Oro: Película (Drama), Director, Actor (Brando), Guión y BSO\r\n1972: Premios BAFTA: Mejor música. 5 nominaciones, incluyendo Mejor actor (Brando)\r\n1972: Círculo de Críticos de Nueva York: Mejor actor secundario (Duvall). 4 nominaciones\r\n1972: National Board of Review: Mejor actor sec. (Pacino) y Mejores 10 films del año\r\n1972: Sindicato de Directores (DGA): Mejor director\r\n1972: Sindicato de Guionistas (WGA): Mejor guión adaptado drama\r\n1972: Premios David di Donatello: Mejor film extranjero y Premio Especial (Al Pacino)"
+
+                }, {
+                    title: 'Ciudad de dios',
+                    imagen: '../imagenes/8.jpg',
+                    rating: 5,
+                    show: false,
+                    pais: 'Brasil',
+                    genero: 'Drama',
+                    rating: 5,
+                    datos: '2002, Fernando Meirelles',
+                    caracteristicas: ''
+                }, {
+                    title: 'Uno de los nuestros',
+                    imagen: '../imagenes/9.jpg',
                     show: false,
                     pais: 'Estados Unidos',
                     genero: 'Drama',
                     rating: 5,
-                    datos: '1972. ',
+                    datos: '1990, Martin Scorsese',
+                    caracteristicas: ''
+                }, {
+                    title: 'Alguien voló sobre el nido del cuco',
+                    imagen: '../imagenes/10.jpg',
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Drama',
+                    rating: 5,
+                    datos: '1975, Milos Forman',
+                    caracteristicas: ''
+                }, {
+                    title: 'American History X',
+                    imagen: '../imagenes/11.jpg',
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Drama',
+                    rating: 5,
+                    datos: '1998, Tony Kaye',
+                    caracteristicas: ''
+                }, {
+                    title: 'Dersu Uzala',
+                    imagen: '../imagenes/12.jpg',
+                    show: false,
+                    pais: 'URSS',
+                    genero: 'Aventuras',
+                    rating: 5,
+                    datos: '1975, Akira Kurosawa',
+                    caracteristicas: ''
+                }, {
+                    title: 'Cinema paradiso',
+                    imagen: '../imagenes/13.jpg',
+                    show: false,
+                    pais: 'Italia',
+                    genero: 'Drama',
+                    rating: 5,
+                    datos: '1988, Giuseppe Tornatore',
+                    caracteristicas: " 3 Oscars: Mejor película, Actor (Marlon Brando), Guión adaptado. 11[10*] nom.\r\n1972: 5 Globos de Oro: Película (Drama), Director, Actor (Brando), Guión y BSO\r\n1972: Premios BAFTA: Mejor música. 5 nominaciones, incluyendo Mejor actor (Brando)\r\n1972: Círculo de Críticos de Nueva York: Mejor actor secundario (Duvall). 4 nominaciones\r\n1972: National Board of Review: Mejor actor sec. (Pacino) y Mejores 10 films del año\r\n1972: Sindicato de Directores (DGA): Mejor director\r\n1972: Sindicato de Guionistas (WGA): Mejor guión adaptado drama\r\n1972: Premios David di Donatello: Mejor film extranjero y Premio Especial (Al Pacino)"
+
+                }, {
+                    title: 'Érase una vez en América',
+                    imagen: '../imagenes/14.jpg',
+                    rating: 5,
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Drama',
+                    rating: 5,
+                    datos: '1984, Sergio Leone',
+                    caracteristicas: ''
+                }, {
+                    title: 'Seven',
+                    imagen: '../imagenes/15.jpg',
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Thriller',
+                    rating: 5,
+                    datos: '1995, David Fincher',
+                    caracteristicas: ''
+                }, {
+                    title: 'El pianista',
+                    imagen: '../imagenes/16.jpg',
+                    show: false,
+                    pais: 'Reino Unido',
+                    genero: 'Drama',
+                    rating: 5,
+                    datos: '2002, Roman Polanski',
+                    caracteristicas: ''
+                }, {
+                    title: 'Apocalypse Now',
+                    imagen: '../imagenes/17.jpg',
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Drama',
+                    rating: 5,
+                    datos: '1979, Francis Ford Coppola',
                     caracteristicas: ''
                 }, {
                     title: 'Pelicula 6',
-                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/6.jpg',
+                    imagen: '../imagenes/18.jpg',
                     show: false,
                     pais: 'Estados Unidos',
                     genero: 'Drama',
@@ -158,7 +273,7 @@
                     caracteristicas: ''
                 }, {
                     title: 'El Padrino',
-                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/1.jpg',
+                    imagen: '../imagenes/19.jpg',
                     show: false,
                     pais: 'Estados Unidos',
                     genero: 'Drama',
@@ -168,7 +283,7 @@
 
                 }, {
                     title: 'Los odi',
-                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/2.jpg',
+                    imagen: '../imagenes/20.jpg',
                     rating: 5,
                     show: false,
                     pais: 'Estados Unidos',
@@ -178,7 +293,7 @@
                     caracteristicas: ''
                 }, {
                     title: 'Pelicula 3',
-                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/3.jpg',
+                    imagen: '../imagenes/21.jpg',
                     show: false,
                     pais: 'Estados Unidos',
                     genero: 'Drama',
@@ -187,7 +302,7 @@
                     caracteristicas: ''
                 }, {
                     title: 'Pelicula 4',
-                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/4.jpg',
+                    imagen: '../imagenes/22.jpg',
                     show: false,
                     pais: 'Estados Unidos',
                     genero: 'Drama',
@@ -196,7 +311,7 @@
                     caracteristicas: ''
                 }, {
                     title: 'Pelicula 5',
-                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/5.jpg',
+                    imagen: '../imagenes/23.jpg',
                     show: false,
                     pais: 'Estados Unidos',
                     genero: 'Drama',
@@ -205,7 +320,7 @@
                     caracteristicas: ''
                 }, {
                     title: 'Pelicula 6',
-                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/6.jpg',
+                    imagen: '../imagenes/24.jpg',
                     show: false,
                     pais: 'Estados Unidos',
                     genero: 'Drama',
@@ -214,7 +329,7 @@
                     caracteristicas: ''
                 }, {
                     title: 'El Padrino',
-                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/1.jpg',
+                    imagen: '../imagenes/25.jpg',
                     show: false,
                     pais: 'Estados Unidos',
                     genero: 'Drama',
@@ -224,7 +339,7 @@
 
                 }, {
                     title: 'Los odi',
-                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/2.jpg',
+                    imagen: '../imagenes/27.jpg',
                     rating: 5,
                     show: false,
                     pais: 'Estados Unidos',
@@ -234,7 +349,7 @@
                     caracteristicas: ''
                 }, {
                     title: 'Pelicula 3',
-                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/3.jpg',
+                    imagen: '../imagenes/28.jpg',
                     show: false,
                     pais: 'Estados Unidos',
                     genero: 'Drama',
@@ -243,7 +358,7 @@
                     caracteristicas: ''
                 }, {
                     title: 'Pelicula 4',
-                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/4.jpg',
+                    imagen: '../imagenes/29.jpg',
                     show: false,
                     pais: 'Estados Unidos',
                     genero: 'Drama',
@@ -252,7 +367,7 @@
                     caracteristicas: ''
                 }, {
                     title: 'Pelicula 5',
-                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/5.jpg',
+                    imagen: '../imagenes/30.jpg',
                     show: false,
                     pais: 'Estados Unidos',
                     genero: 'Drama',
@@ -261,119 +376,7 @@
                     caracteristicas: ''
                 }, {
                     title: 'Pelicula 6',
-                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/6.jpg',
-                    show: false,
-                    pais: 'Estados Unidos',
-                    genero: 'Drama',
-                    rating: 5,
-                    datos: '1972. ',
-                    caracteristicas: ''
-                }, {
-                    title: 'El Padrino',
-                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/1.jpg',
-                    show: false,
-                    pais: 'Estados Unidos',
-                    genero: 'Drama',
-                    rating: 5,
-                    datos: '1972. ',
-                    caracteristicas: " 3 Oscars: Mejor película, Actor (Marlon Brando), Guión adaptado. 11[10*] nom.\r\n1972: 5 Globos de Oro: Película (Drama), Director, Actor (Brando), Guión y BSO\r\n1972: Premios BAFTA: Mejor música. 5 nominaciones, incluyendo Mejor actor (Brando)\r\n1972: Círculo de Críticos de Nueva York: Mejor actor secundario (Duvall). 4 nominaciones\r\n1972: National Board of Review: Mejor actor sec. (Pacino) y Mejores 10 films del año\r\n1972: Sindicato de Directores (DGA): Mejor director\r\n1972: Sindicato de Guionistas (WGA): Mejor guión adaptado drama\r\n1972: Premios David di Donatello: Mejor film extranjero y Premio Especial (Al Pacino)"
-
-                }, {
-                    title: 'Los odi',
-                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/2.jpg',
-                    rating: 5,
-                    show: false,
-                    pais: 'Estados Unidos',
-                    genero: 'Drama',
-                    rating: 5,
-                    datos: '1972. ',
-                    caracteristicas: ''
-                }, {
-                    title: 'Pelicula 3',
-                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/3.jpg',
-                    show: false,
-                    pais: 'Estados Unidos',
-                    genero: 'Drama',
-                    rating: 5,
-                    datos: '1972. ',
-                    caracteristicas: ''
-                }, {
-                    title: 'Pelicula 4',
-                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/4.jpg',
-                    show: false,
-                    pais: 'Estados Unidos',
-                    genero: 'Drama',
-                    rating: 5,
-                    datos: '1972. ',
-                    caracteristicas: ''
-                }, {
-                    title: 'Pelicula 5',
-                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/5.jpg',
-                    show: false,
-                    pais: 'Estados Unidos',
-                    genero: 'Drama',
-                    rating: 5,
-                    datos: '1972. ',
-                    caracteristicas: ''
-                }, {
-                    title: 'Pelicula 6',
-                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/6.jpg',
-                    show: false,
-                    pais: 'Estados Unidos',
-                    genero: 'Drama',
-                    rating: 5,
-                    datos: '1972. ',
-                    caracteristicas: ''
-                }, {
-                    title: 'El Padrino',
-                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/1.jpg',
-                    show: false,
-                    pais: 'Estados Unidos',
-                    genero: 'Drama',
-                    rating: 5,
-                    datos: '1972. ',
-                    caracteristicas: " 3 Oscars: Mejor película, Actor (Marlon Brando), Guión adaptado. 11[10*] nom.\r\n1972: 5 Globos de Oro: Película (Drama), Director, Actor (Brando), Guión y BSO\r\n1972: Premios BAFTA: Mejor música. 5 nominaciones, incluyendo Mejor actor (Brando)\r\n1972: Círculo de Críticos de Nueva York: Mejor actor secundario (Duvall). 4 nominaciones\r\n1972: National Board of Review: Mejor actor sec. (Pacino) y Mejores 10 films del año\r\n1972: Sindicato de Directores (DGA): Mejor director\r\n1972: Sindicato de Guionistas (WGA): Mejor guión adaptado drama\r\n1972: Premios David di Donatello: Mejor film extranjero y Premio Especial (Al Pacino)"
-
-                }, {
-                    title: 'Los odi',
-                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/2.jpg',
-                    rating: 5,
-                    show: false,
-                    pais: 'Estados Unidos',
-                    genero: 'Drama',
-                    rating: 5,
-                    datos: '1972. ',
-                    caracteristicas: ''
-                }, {
-                    title: 'Pelicula 3',
-                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/3.jpg',
-                    show: false,
-                    pais: 'Estados Unidos',
-                    genero: 'Drama',
-                    rating: 5,
-                    datos: '1972. ',
-                    caracteristicas: ''
-                }, {
-                    title: 'Pelicula 4',
-                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/4.jpg',
-                    show: false,
-                    pais: 'Estados Unidos',
-                    genero: 'Drama',
-                    rating: 5,
-                    datos: '1972. ',
-                    caracteristicas: ''
-                }, {
-                    title: 'Pelicula 5',
-                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/5.jpg',
-                    show: false,
-                    pais: 'Estados Unidos',
-                    genero: 'Drama',
-                    rating: 5,
-                    datos: '1972. ',
-                    caracteristicas: ''
-                }, {
-                    title: 'Pelicula 6',
-                    imagen: '/home/julio/accesibilidad/Accesibilidad/imagenes/6.jpg',
+                    imagen: '../imagenes/31.jpg',
                     show: false,
                     pais: 'Estados Unidos',
                     genero: 'Drama',
@@ -382,6 +385,12 @@
                     caracteristicas: ''
                 }, ],
             }),
+
+            methods:{
+                compara:function(){
+                    alert(this.id1)
+                }
+            }
         });
 
         //# sourceURL=pen.js
