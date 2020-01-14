@@ -109,7 +109,7 @@
                     show: false,
                     pais: 'Estados Unidos',
                     genero: 'Drama',
-                    rating: 5,
+                    rating: 4,
                     datos: '1972, ' +
                         'Francis Ford Coppola',
                     caracteristicas: '\r\n3 Oscars: Mejor película, Actor(Marlon Brando)\r\nGuión adaptado.\r\n1972: 5 Globos de Oro: Película (Drama)\r\nDirector, Actor (Brando), Guión y BSO"\r\n1972: Premios BAFTA: Mejor música.\r\n5 nominaciones,incluyendo Mejor actor (Brando)\r\n1972: Círculo de Críticos de Nueva York:\r\nMejor actor secundario (Duvall).\r\n1972: National Board of Review:\r\nMejor actor sec. (Pacino) y Mejores 10 films\r\ndel año\r\n1972: Sindicato de Directores (DGA):\r\nMejor director\r\n1972: Sindicato de Guionistas (WGA):\r\nMejor guión adaptado drama\r\n1972: Premios David di Donatello:\r\nMejor film extranjero y Premio Especial\r\n(Al Pacino)'
@@ -132,7 +132,7 @@
                     show: false,
                     pais: 'Estados Unidos',
                     genero: 'Drama',
-                    rating: 5,
+                    rating: 3,
                     datos: '1993, Steven Spielberg',
                     caracteristicas: ''
                 }, {
@@ -162,7 +162,7 @@
                     show: false,
                     pais: 'Estados Unidos',
                     genero: 'Intriga',
-                    rating: 5,
+                    rating: 4,
                     datos: '1973, George Roy Hill',
                     caracteristicas: ''
                 }, {
@@ -172,7 +172,7 @@
                     show: false,
                     pais: 'Italia',
                     genero: 'Drama',
-                    rating: 5,
+                    rating: 4,
                     datos: '1997, Roberto Benigni',
                     caracteristicas: " 3 Oscars: Mejor película, Actor (Marlon Brando), Guión adaptado. 11[10*] nom.\r\n1972: 5 Globos de Oro: Película (Drama), Director, Actor (Brando), Guión y BSO\r\n1972: Premios BAFTA: Mejor música. 5 nominaciones, incluyendo Mejor actor (Brando)\r\n1972: Círculo de Críticos de Nueva York: Mejor actor secundario (Duvall). 4 nominaciones\r\n1972: National Board of Review: Mejor actor sec. (Pacino) y Mejores 10 films del año\r\n1972: Sindicato de Directores (DGA): Mejor director\r\n1972: Sindicato de Guionistas (WGA): Mejor guión adaptado drama\r\n1972: Premios David di Donatello: Mejor film extranjero y Premio Especial (Al Pacino)"
 
@@ -184,7 +184,7 @@
                     show: false,
                     pais: 'Brasil',
                     genero: 'Drama',
-                    rating: 5,
+                    rating: 4.5,
                     datos: '2002, Fernando Meirelles',
                     caracteristicas: ''
                 }, {
@@ -421,23 +421,23 @@
                     var i
                     var size = Object.keys(this.films).length
 
-                    if(this.id1 == 0){
-                        for (i = 0; i < size; i++){
-                            if(titulo == this.films[i].title){
+                    if (this.id1 == 0) {
+                        for (i = 0; i < size; i++) {
+                            if (titulo == this.films[i].title) {
                                 this.id1 = this.films[i].id
                             }
                         }
-                    }else if(this.id1 != 0 && this.id2 == 0){
-                        for (i = 0; i < size; i++){
-                            if(titulo == this.films[i].title){
+                    } else if (this.id1 != 0 && this.id2 == 0) {
+                        for (i = 0; i < size; i++) {
+                            if (titulo == this.films[i].title) {
                                 this.id2 = this.films[i].id
-                            }   
+                            }
                         }
 
-                        if(this.id1 == this.id2){
+                        if (this.id1 == this.id2) {
                             alert("Error, ha seleccionado dos veces la misma película.")
-                        }else{
-                            window.location = "comparador.html?id1="+this.id1+"&id2="+this.id2
+                        } else {
+                            window.location = "comparador.html?id1=" + this.id1 + "&id2=" + this.id2
                         }
                     }
                 }
