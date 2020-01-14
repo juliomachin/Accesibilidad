@@ -144,6 +144,28 @@
             el: '#app',
             data: {
                 pelicula1: {
+                    title: '',
+                    imagen: '',
+                    rating: 0,
+                    show: false,
+                    pais: '',
+                    genero: '',
+                    datos: '',
+                    caracteristicas: ''
+                },
+                pelicula2: {
+                    title: '',
+                    imagen: '',
+                    rating: 0,
+                    show: false,
+                    pais: '',
+                    genero: '',
+                    datos: '',
+                    caracteristicas: ''
+                },
+
+                films: [{
+                    id: 1,
                     title: 'El Padrino',
                     imagen: '../imagenes/1.jpg',
                     show: false,
@@ -154,20 +176,334 @@
                         'Francis Ford Coppola',
                     caracteristicas: '\r\n3 Oscars: Mejor película, Actor(Marlon Brando)\r\nGuión adaptado.\r\n1972: 5 Globos de Oro: Película (Drama)\r\nDirector, Actor (Brando), Guión y BSO"\r\n1972: Premios BAFTA: Mejor música.\r\n5 nominaciones,incluyendo Mejor actor (Brando)\r\n1972: Círculo de Críticos de Nueva York:\r\nMejor actor secundario (Duvall).\r\n1972: National Board of Review:\r\nMejor actor sec. (Pacino) y Mejores 10 films\r\ndel año\r\n1972: Sindicato de Directores (DGA):\r\nMejor director\r\n1972: Sindicato de Guionistas (WGA):\r\nMejor guión adaptado drama\r\n1972: Premios David di Donatello:\r\nMejor film extranjero y Premio Especial\r\n(Al Pacino)'
 
-                },
-                pelicula2: {
+                }, {
+                    id: 2,
                     title: 'EL Padrino. Parte II',
                     imagen: '../imagenes/2.jpg',
                     rating: 5,
                     show: false,
                     pais: 'Estados Unidos',
                     genero: 'Drama',
+                    rating: 5,
                     datos: '1974, Francis Ford Coppola',
                     caracteristicas: '\r\n6 Oscars:Película, Director, Actor de reparto.\r\n1974:Globos de Oro: 6 nominaciones,incluyendo\r\nMejor película - Drama\r\n1974: Círculo de Críticos de Nueva York:\r\n4 nominaciones, incluyendo Mejor película\r\n1974: Sindicato de Directores (DGA):\r\nMejor director\r\n1974: Sindicato de Guionistas (WGA):\r\nMejor guión adaptado drama\r\n1975: Premios BAFTA:\r\nMejor actor (Al Pacino).'
-                },
+                }, {
+                    id: 3,
+                    title: 'La lista de Schindler',
+                    imagen: '../imagenes/3.jpg',
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Drama',
+                    rating: 5,
+                    datos: '1993, Steven Spielberg',
+                    caracteristicas: ''
+                }, {
+                    id: 4,
+                    title: 'Cadena perpetua',
+                    imagen: '../imagenes/4.jpg',
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Drama',
+                    rating: 5,
+                    datos: '1994, Frank Darabont',
+                    caracteristicas: ''
+                }, {
+                    id: 5,
+                    title: 'Pulp Fiction',
+                    imagen: '../imagenes/5.jpg',
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Thriller',
+                    rating: 5,
+                    datos: '1994, Quentin Tarantino',
+                    caracteristicas: ''
+                }, {
+                    id: 6,
+                    title: 'El golpe',
+                    imagen: '../imagenes/6.jpg',
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Intriga',
+                    rating: 5,
+                    datos: '1973, George Roy Hill',
+                    caracteristicas: ''
+                }, {
+                    id: 7,
+                    title: 'La vida es bella',
+                    imagen: '../imagenes/7.jpg',
+                    show: false,
+                    pais: 'Italia',
+                    genero: 'Drama',
+                    rating: 5,
+                    datos: '1997, Roberto Benigni',
+                    caracteristicas: " 3 Oscars: Mejor película, Actor (Marlon Brando), Guión adaptado. 11[10*] nom.\r\n1972: 5 Globos de Oro: Película (Drama), Director, Actor (Brando), Guión y BSO\r\n1972: Premios BAFTA: Mejor música. 5 nominaciones, incluyendo Mejor actor (Brando)\r\n1972: Círculo de Críticos de Nueva York: Mejor actor secundario (Duvall). 4 nominaciones\r\n1972: National Board of Review: Mejor actor sec. (Pacino) y Mejores 10 films del año\r\n1972: Sindicato de Directores (DGA): Mejor director\r\n1972: Sindicato de Guionistas (WGA): Mejor guión adaptado drama\r\n1972: Premios David di Donatello: Mejor film extranjero y Premio Especial (Al Pacino)"
+
+                }, {
+                    id: 8,
+                    title: 'Ciudad de dios',
+                    imagen: '../imagenes/8.jpg',
+                    rating: 5,
+                    show: false,
+                    pais: 'Brasil',
+                    genero: 'Drama',
+                    rating: 5,
+                    datos: '2002, Fernando Meirelles',
+                    caracteristicas: ''
+                }, {
+                    id: 9,
+                    title: 'Uno de los nuestros',
+                    imagen: '../imagenes/9.jpg',
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Drama',
+                    rating: 5,
+                    datos: '1990, Martin Scorsese',
+                    caracteristicas: ''
+                }, {
+                    id: 10,
+                    title: 'Alguien voló sobre el nido del cuco',
+                    imagen: '../imagenes/10.jpg',
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Drama',
+                    rating: 5,
+                    datos: '1975, Milos Forman',
+                    caracteristicas: ''
+                }, {
+                    id: 11,
+                    title: 'American History X',
+                    imagen: '../imagenes/11.jpg',
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Drama',
+                    rating: 5,
+                    datos: '1998, Tony Kaye',
+                    caracteristicas: ''
+                }, {
+                    id: 12,
+                    title: 'Dersu Uzala',
+                    imagen: '../imagenes/12.jpg',
+                    show: false,
+                    pais: 'URSS',
+                    genero: 'Aventuras',
+                    rating: 5,
+                    datos: '1975, Akira Kurosawa',
+                    caracteristicas: ''
+                }, {
+                    id: 13,
+                    title: 'Cinema paradiso',
+                    imagen: '../imagenes/13.jpg',
+                    show: false,
+                    pais: 'Italia',
+                    genero: 'Drama',
+                    rating: 5,
+                    datos: '1988, Giuseppe Tornatore',
+                    caracteristicas: " 3 Oscars: Mejor película, Actor (Marlon Brando), Guión adaptado. 11[10*] nom.\r\n1972: 5 Globos de Oro: Película (Drama), Director, Actor (Brando), Guión y BSO\r\n1972: Premios BAFTA: Mejor música. 5 nominaciones, incluyendo Mejor actor (Brando)\r\n1972: Círculo de Críticos de Nueva York: Mejor actor secundario (Duvall). 4 nominaciones\r\n1972: National Board of Review: Mejor actor sec. (Pacino) y Mejores 10 films del año\r\n1972: Sindicato de Directores (DGA): Mejor director\r\n1972: Sindicato de Guionistas (WGA): Mejor guión adaptado drama\r\n1972: Premios David di Donatello: Mejor film extranjero y Premio Especial (Al Pacino)"
+
+                }, {
+                    id: 14,
+                    title: 'Érase una vez en América',
+                    imagen: '../imagenes/14.jpg',
+                    rating: 5,
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Drama',
+                    rating: 5,
+                    datos: '1984, Sergio Leone',
+                    caracteristicas: ''
+                }, {
+                    id: 15,
+                    title: 'Seven',
+                    imagen: '../imagenes/15.jpg',
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Thriller',
+                    rating: 5,
+                    datos: '1995, David Fincher',
+                    caracteristicas: ''
+                }, {
+                    id: 16,
+                    title: 'El pianista',
+                    imagen: '../imagenes/16.jpg',
+                    show: false,
+                    pais: 'Reino Unido',
+                    genero: 'Drama',
+                    rating: 5,
+                    datos: '2002, Roman Polanski',
+                    caracteristicas: ''
+                }, {
+                    id: 17,
+                    title: 'Apocalypse Now',
+                    imagen: '../imagenes/17.jpg',
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Bélico',
+                    rating: 5,
+                    datos: '1979, Francis Ford Coppola',
+                    caracteristicas: ''
+                }, {
+                    id: 18,
+                    title: 'Sin perdón',
+                    imagen: '../imagenes/18.jpg',
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Western',
+                    rating: 5,
+                    datos: '1992, Clint Eastwood',
+                    caracteristicas: ''
+                }, {
+                    id: 19,
+                    title: 'El precio del poder',
+                    imagen: '../imagenes/19.jpg',
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Drama',
+                    rating: 5,
+                    datos: '1983, Brian De Palma',
+                    caracteristicas: " 3 Oscars: Mejor película, Actor (Marlon Brando), Guión adaptado. 11[10*] nom.\r\n1972: 5 Globos de Oro: Película (Drama), Director, Actor (Brando), Guión y BSO\r\n1972: Premios BAFTA: Mejor música. 5 nominaciones, incluyendo Mejor actor (Brando)\r\n1972: Círculo de Críticos de Nueva York: Mejor actor secundario (Duvall). 4 nominaciones\r\n1972: National Board of Review: Mejor actor sec. (Pacino) y Mejores 10 films del año\r\n1972: Sindicato de Directores (DGA): Mejor director\r\n1972: Sindicato de Guionistas (WGA): Mejor guión adaptado drama\r\n1972: Premios David di Donatello: Mejor film extranjero y Premio Especial (Al Pacino)"
+
+                }, {
+                    id: 20,
+                    title: 'El silencio de los corderos',
+                    imagen: '../imagenes/20.jpg',
+                    rating: 5,
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Thriller',
+                    rating: 5,
+                    datos: '1991, Jonathan Demme',
+                    caracteristicas: ''
+                }, {
+                    id: 21,
+                    title: 'La huella',
+                    imagen: '../imagenes/21.jpg',
+                    show: false,
+                    pais: 'Reino Unido',
+                    genero: 'Intriga',
+                    rating: 5,
+                    datos: '1972, Joseph L. Mankiewicz',
+                    caracteristicas: ''
+                }, {
+                    id: 22,
+                    title: 'La naranja mecánica',
+                    imagen: '../imagenes/22.jpg',
+                    show: false,
+                    pais: 'Reino Unido',
+                    genero: 'Drama',
+                    rating: 5,
+                    datos: '1971, Stanley Kubrick',
+                    caracteristicas: ''
+                }, {
+                    id: 23,
+                    title: 'Forrest Gump',
+                    imagen: '../imagenes/23.jpg',
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Drama',
+                    rating: 5,
+                    datos: '1994, Robert Zemeckis',
+                    caracteristicas: ''
+                }, {
+                    id: 24,
+                    title: 'Joker',
+                    imagen: '../imagenes/24.jpg',
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Thriller',
+                    rating: 5,
+                    datos: '2019, Todd Phillips',
+                    caracteristicas: ''
+                }, {
+                    id: 25,
+                    title: 'Gran Torino',
+                    imagen: '../imagenes/25.jpg',
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Drama',
+                    rating: 5,
+                    datos: '2008, Clint Eastwood',
+                    caracteristicas: " 3 Oscars: Mejor película, Actor (Marlon Brando), Guión adaptado. 11[10*] nom.\r\n1972: 5 Globos de Oro: Película (Drama), Director, Actor (Brando), Guión y BSO\r\n1972: Premios BAFTA: Mejor música. 5 nominaciones, incluyendo Mejor actor (Brando)\r\n1972: Círculo de Críticos de Nueva York: Mejor actor secundario (Duvall). 4 nominaciones\r\n1972: National Board of Review: Mejor actor sec. (Pacino) y Mejores 10 films del año\r\n1972: Sindicato de Directores (DGA): Mejor director\r\n1972: Sindicato de Guionistas (WGA): Mejor guión adaptado drama\r\n1972: Premios David di Donatello: Mejor film extranjero y Premio Especial (Al Pacino)"
+
+                }, {
+                    id: 27,
+                    title: 'La vida de Brian',
+                    imagen: '../imagenes/27.jpg',
+                    rating: 5,
+                    show: false,
+                    pais: 'Reino Unido',
+                    genero: 'Comedia',
+                    rating: 4,
+                    datos: '1979, Terry Jones',
+                    caracteristicas: ''
+                }, {
+                    id: 28,
+                    title: 'Amanece, que no es poco',
+                    imagen: '../imagenes/28.jpg',
+                    show: false,
+                    pais: 'España',
+                    genero: 'Comedia',
+                    rating: 4,
+                    datos: '1989, José Luis Cuerda',
+                    caracteristicas: ''
+                }, {
+                    id: 29,
+                    title: 'Los caballeros de la mesa cuadrada',
+                    imagen: '../imagenes/29.jpg',
+                    show: false,
+                    pais: 'Reino Unido',
+                    genero: 'Comedia',
+                    rating: 4,
+                    datos: '1975, Terry Jones ',
+                    caracteristicas: ''
+                }, {
+                    id: 30,
+                    title: 'Reservoir Dogs',
+                    imagen: '../imagenes/30.jpg',
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Thriller',
+                    rating: 5,
+                    datos: '1992, Quentin Tarantino',
+                    caracteristicas: ''
+                }, {
+                    id: 31,
+                    title: 'El caballero oscuro',
+                    imagen: '../imagenes/31.jpg',
+                    show: false,
+                    pais: 'Estados Unidos',
+                    genero: 'Thriller',
+                    rating: 5,
+                    datos: '2008, Chrisopher Nolan',
+                    caracteristicas: ''
+                }, ],
 
             },
-            methods: {}
+            methods: {
+                inicia:function(){
+                    var id1 = 0
+                    const queryString = window.location.search;
+                    const urlParams = new URLSearchParams(queryString);
+
+                    var id1 = urlParams.get('id1');
+                    var id2 = urlParams.get('id2');
+
+                    var i
+                    var size = Object.keys(this.films).length
+                    
+                    for (i = 0; i < size; i++){
+                        if(this.films[i].id == id1){
+                            this.pelicula1 = this.films[i]
+                        }
+
+                        if(this.films[i].id == id2){
+                            this.pelicula2 = this.films[i]
+                        }
+                    }
+                }
+            },
+            mounted(){
+                this.inicia();
+            }
         });
     </script>
 </body>
