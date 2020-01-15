@@ -32,8 +32,8 @@
                     <v-icon medium dark>theaters</v-icon>
                 </v-toolbar-title>
                 <v-spacer></v-spacer>
-                <v-btn icon medium dark aria-label="Search">
-                    <v-icon>search</v-icon>
+                <v-btn  @click = "ayuda()" icon medium dark aria-label="Search">
+                    <v-icon>help</v-icon>
                 </v-btn>
                 <v-btn icon medium dark href="profile.html">
                     <v-icon medium dark>account_circle</v-icon>
@@ -434,6 +434,10 @@
                             window.location = "comparador.html?id1=" + this.id1 + "&id2=" + this.id2
                         }
                     }
+                },
+
+                ayuda:function(){
+                    alert('Para poder ver la comparación de dos películas, seleccione primero una y luego otra con el botón "comparar".')
                 }
             }
         });
