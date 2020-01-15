@@ -47,82 +47,62 @@
             </v-toolbar>
 
             <v-content>
-                <v-container>
-                    <v-layout justify-center align-center>
-                        <v-flex xs6>
-
-                            <v-card class="ma-3" light="light">
-                                <img :src="pelicula1.imagen" class="image" alt="lorem" width="100%" height="700">
-                                <v-card-title primary-title class="layout justify-center">
-                                    <h1>{{pelicula1.title}}</h1>
-                                </v-card-title>
-
-                                <v-card-subtitle class="layout justify-center" v-text="pelicula1.genero"></v-card-subtitle>
-
-                                <v-container class="layout justify-center ">
-                                    <v-btn disabled>
-                                        <star-rating v-model="pelicula1.rating" half-increments hover></star-rating>
-                                    </v-btn>
-                                    <p class="grey--text">{{pelicula1.datos}}</p>
-                                </v-container>
-
-                                <v-btn icon @click="pelicula1.show = !pelicula1.show">
-                                    <v-icon color="black">{{ pelicula1.show ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}</v-icon>
+                <br></br>
+                <center>
+                    <table style="font-size:25px; width:80%;">
+                        <tr>
+                            <td><center><img :src="pelicula1.imagen" class="image" alt="lorem" style = "width:400px; height:666px; border: 2px solid #ffffff; box-shadow: 2px 2px 10px #ffffff"></center></td>
+                            <th></th>
+                            <td><center><img :src="pelicula2.imagen" class="image" alt="lorem" style = "width:400px; height:666px; border: 2px solid #ffffff; box-shadow: 2px 2px 10px #ffffff"></center></td>
+                        </tr>
+                        <tr>
+                            <td><center>
+                                <v-btn disabled>
+                                    <star-rating v-model="pelicula1.rating" :increment="0.01" hover></star-rating>
                                 </v-btn>
-
-                                </v-card-actions>
-                                <v-expand-transition>
-                                    <div v-show="pelicula1.show">
-                                        <v-divider></v-divider>
-                                        <v-card-text>
-                                            <pre>
-                                                        {{pelicula1.caracteristicas}}
-                                                    </pre>
-                                        </v-card-text>
-                                    </div>
-                                </v-expand-transition>
-
-                            </v-card>
-                        </v-flex>
-                        <v-flex xs6>
-                            <v-card class="ma-3" light="light">
-                                <img :src="pelicula2.imagen" class="image" alt="lorem" width="100%" height="700">
-                                <v-card-title primary-title class="layout justify-center">
-                                    <h1>{{pelicula2.title}}</h1>
-                                </v-card-title>
-
-                                <v-card-subtitle class="layout justify-center" v-text="pelicula2.genero"></v-card-subtitle>
-
-                                <v-container class="layout justify-center ">
-                                    <v-btn disabled>
-                                        <star-rating v-model="pelicula2.rating" half-increments hover></star-rating>
-                                    </v-btn>
-                                    <p class="grey--text">{{pelicula2.datos}}</p>
-                                </v-container>
-
-                                <v-btn icon @click="pelicula2.show = !pelicula2.show">
-                                    <v-icon color="black">{{ pelicula2.show ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}</v-icon>
+                                </center>
+                            </td>
+                            <th style="font-size:30px;">Valoración</th>
+                            <td><center>
+                                <v-btn disabled>
+                                    <star-rating v-model="pelicula2.rating" :increment="0.1" hover></star-rating>
                                 </v-btn>
+                                </center>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><center>{{pelicula1.title}}</center></td>
+                            <th style="font-size:30px;">Título</th>
+                            <td><center>{{pelicula2.title}}</center></td>
+                        </tr>
+                        <tr>
+                            <td><center>{{pelicula1.director}}</center></td>
+                            <th style="font-size:30px;">Director</th>
+                            <td><center>{{pelicula2.director}}</center></td>
+                        </tr>
+                        <tr>
+                            <td><center>{{pelicula1.año}}</center></td>
+                            <th style="font-size:30px;">Año</th>
+                            <td><center>{{pelicula2.año}}</center></td>
+                        </tr>
+                        <tr>
+                            <td><center>{{pelicula1.pais}}</center></td>
+                            <th style="font-size:30px;">País</th>
+                            <td><center>{{pelicula2.pais}}</center></td>
+                        </tr>
+                        <tr>
+                            <td><center>{{pelicula1.genero}}</center></td>
+                            <th style="font-size:30px;">Género</th>
+                            <td><center>{{pelicula2.genero}}</center></td>
+                        </tr>
+                        <tr>
+                            <td><center>{{pelicula1.caracteristicas}}</center></tdstyle="width:80%; font-size: 30px;">
+                            <th style="font-size:30px;">Premios</th>
+                            <td><center>{{pelicula2.caracteristicas}}</center></td>
+                        </tr>
 
-                                </v-card-actions>
-                                <v-expand-transition>
-                                    <div v-show="pelicula2.show">
-                                        <v-divider></v-divider>
-                                        <v-card-text>
-                                            <pre>
-                                                {{pelicula2.caracteristicas}}
-                                            </pre>
-
-                                        </v-card-text>
-                                    </div>
-                                </v-expand-transition>
-
-                            </v-card>
-                        </v-flex>
-                    </v-layout>
-                </v-container>
-
-
+                    </table>
+                </center>  
 
             </v-content>
             <v-footer app="app ">
@@ -150,6 +130,8 @@
                     show: false,
                     pais: '',
                     genero: '',
+                    director: '',
+                    año: '',
                     datos: '',
                     caracteristicas: ''
                 },
@@ -160,6 +142,8 @@
                     show: false,
                     pais: '',
                     genero: '',
+                    director: '',
+                    año: '',
                     datos: '',
                     caracteristicas: ''
                 },
@@ -171,22 +155,25 @@
                     show: false,
                     pais: 'Estados Unidos',
                     genero: 'Drama',
-                    rating: 5,
+                    rating: 4.5,
+                    director: 'Francis Ford Coppola',
+                    año: '1972',
                     datos: '1972, ' +
                         'Francis Ford Coppola',
-                    caracteristicas: '\r\n3 Oscars: Mejor película, Actor(Marlon Brando)\r\nGuión adaptado.\r\n1972: 5 Globos de Oro: Película (Drama)\r\nDirector, Actor (Brando), Guión y BSO"\r\n1972: Premios BAFTA: Mejor música.\r\n5 nominaciones,incluyendo Mejor actor (Brando)\r\n1972: Círculo de Críticos de Nueva York:\r\nMejor actor secundario (Duvall).\r\n1972: National Board of Review:\r\nMejor actor sec. (Pacino) y Mejores 10 films\r\ndel año\r\n1972: Sindicato de Directores (DGA):\r\nMejor director\r\n1972: Sindicato de Guionistas (WGA):\r\nMejor guión adaptado drama\r\n1972: Premios David di Donatello:\r\nMejor film extranjero y Premio Especial\r\n(Al Pacino)'
+                    caracteristicas: '3 Oscars, 5 Globos de Oro y 1 premio BAFTA'
 
                 }, {
                     id: 2,
                     title: 'EL Padrino. Parte II',
                     imagen: '../imagenes/2.jpg',
-                    rating: 5,
                     show: false,
                     pais: 'Estados Unidos',
                     genero: 'Drama',
-                    rating: 4,
+                    rating: 4.45,
+                    director: 'Francis Ford Coppola',
+                    año: '1974',
                     datos: '1974, Francis Ford Coppola',
-                    caracteristicas: '\r\n6 Oscars:Película, Director, Actor de reparto.\r\n1974:Globos de Oro: 6 nominaciones,incluyendo\r\nMejor película - Drama\r\n1974: Círculo de Críticos de Nueva York:\r\n4 nominaciones, incluyendo Mejor película\r\n1974: Sindicato de Directores (DGA):\r\nMejor director\r\n1974: Sindicato de Guionistas (WGA):\r\nMejor guión adaptado drama\r\n1975: Premios BAFTA:\r\nMejor actor (Al Pacino).'
+                    caracteristicas: '6 Oscars'
                 }, {
                     id: 3,
                     title: 'La lista de Schindler',
@@ -194,9 +181,11 @@
                     show: false,
                     pais: 'Estados Unidos',
                     genero: 'Drama',
-                    rating: 3,
+                    rating: 4.3,
+                    director: 'Steven Spielberg',
+                    año: '1993',
                     datos: '1993, Steven Spielberg',
-                    caracteristicas: '\r\n7 Oscars incluyendo mejor película y director.\r\n1993:3 Globos de Oro: Película: drama, guión, director.\r\n1993: 7 Premios BAFTA, incluyendo mejor película y director.\r\n1993: National Board of Review: Mejor película.\r\n1993:Círculo de Críticos de Nueva York:\r\nMejor película, actor sec. y fotografía\r\n1993: Asociación de Críticos de Los Angeles:\r\nMejor película, fotografía y diseño de prod.\r\n1993: Asociación de Críticos de Chicago:\r\n6 premios, incl. Mejor película. 7 nom.\r\n1993: Sindicato de Productores (PGA):Mejor película\r\n1993: Sindicato de Directores (DGA): Mejor director\r\n1993: Sindicato de Guionistas (WGA): Mejor guión adaptado\r\n1994: Premios Cesar: Nominada a la Mejor película extranjera\r\n1994: Premios David de Donatello:\r\nNominada a mejor película extranjera'
+                    caracteristicas: '7 Oscars, 3 Globos de Oro y 7 premios BAFTA'
                 }, {
                     id: 4,
                     title: 'Cadena perpetua',
@@ -204,9 +193,11 @@
                     show: false,
                     pais: 'Estados Unidos',
                     genero: 'Drama',
-                    rating: 5,
+                    rating: 4.3,
+                    director: 'Frank Darabont',
+                    año: '1994',
                     datos: '1994, Frank Darabont',
-                    caracteristicas: '\r\nOscar: 7 nominaciones,mejor película y actor (Freeman)\r\n1994: Globo de Oro: 2 nominaciones: mejor actor drama (Freeman)\r\ny guión\r\n1994: Sindicato de Productores (PGA):\r\nNominada a Mejor película\r\n1994: Sindicato de Directores (DGA): Nominada a Mejor director\r\n1994: Sindicato de Guionistas (WGA):\r\nNominada a Mejor guión adaptado\r\n1994: Sindicato de Actores (SAG):\r\n2 nom. Mejor actor (Freeman y Robbins)\r\n1994: Asociación de Críticos de Chicago:\r\n3 nominaciones, incluyendo Mejor película'
+                    caracteristicas: '-'
                 }, {
                     id: 5,
                     title: 'Pulp Fiction',
@@ -214,9 +205,11 @@
                     show: false,
                     pais: 'Estados Unidos',
                     genero: 'Thriller',
-                    rating: 5,
+                    rating: 4.3,
+                    director: 'Quentin Tarantino',
+                    año: '1994',
                     datos: '1994, Quentin Tarantino',
-                    caracteristicas: '\r\n1994: Oscar: Mejor guión original.\r\n1994: Globo de Oro: Mejor guión. 6 nominaciones\r\n1994: Festival de Cannes: Palma de Oro\r\n1994: 2 Premios BAFTA: Mejor actor sec. (Samuel L. Jackson) y\r\nguión.\r\n1994: Premios Cesar: Nominada a Mejor película extranjera\r\n1994: Premios David di Donatello: Mejor film y actor extranjero\r\n(Travolta). 3 nom.\r\n1994: National Board of Review: Mejor película (ex-aequo)\r\n1994: Círculo de Críticos de Nueva York: Mejor director y guión.\r\n1994: Asociación de Críticos de Los Angeles:\r\nMejor película, dirección, actor y guion\r\n1994: Premios Independent Spirit:\r\nMejor película, director, actor y guión. 6 nominaciones\r\n1994: Sindicato de Productores (PGA):\r\nNominada a Mejor película\r\n1994: Sindicato de Directores (DGA): Nominada a Mejor director\r\n1994: Sindicato de Actores (SAG):\r\nNom. a Mejor actor (Travolta), actor sec. (Jackson) y actriz\r\nsec. (Thurman)\r\n1994: Asociación de Críticos de Chicago:\r\nMejor director y guión. 6 nominaciones'
+                    caracteristicas: '1 Oscar, 1 Globo de Oro y 2 premios BAFTA'
                 }, {
                     id: 6,
                     title: 'El golpe',
@@ -224,9 +217,11 @@
                     show: false,
                     pais: 'Estados Unidos',
                     genero: 'Intriga',
-                    rating: 5,
+                    rating: 4.3,
+                    director: 'George Roy Hill',
+                    año: '1973',
                     datos: '1973, George Roy Hill',
-                    caracteristicas: '\r\n7 Oscars incluyendo mejor película y director.\r\n1993:3 Globos de Oro: Película: drama, guión, director.\r\n1993: 7 Premios BAFTA, incluyendo mejor película y director.\r\n1993: National Board of Review: Mejor película.\r\n1993:Círculo de Críticos de Nueva York:\r\nMejor película, actor sec. y fotografía\r\n1993: Asociación de Críticos de Los Angeles:\r\nMejor película, fotografía y diseño de prod.\r\n1993: Asociación de Críticos de Chicago:\r\n6 premios, incl. Mejor película. 7 nom.\r\n1993: Sindicato de Productores (PGA):Mejor película\r\n1993: Sindicato de Directores (DGA): Mejor director\r\n1993: Sindicato de Guionistas (WGA): Mejor guión adaptado\r\n1994: Premios Cesar: Nominada a la Mejor película extranjera\r\n1994: Premios David de Donatello:\r\nNominada a mejor película extranjera'
+                    caracteristicas: '7 Oscars'
                 }, {
                     id: 7,
                     title: 'La vida es bella',
@@ -234,21 +229,24 @@
                     show: false,
                     pais: 'Italia',
                     genero: 'Drama',
-                    rating: 5,
+                    rating: 4.25,
+                    director: 'Roberto Benigni',
+                    año: '1997',
                     datos: '1997, Roberto Benigni',
-                    caracteristicas: '\r\n7 Oscars incluyendo mejor película y director.\r\n1993:3 Globos de Oro: Película: drama, guión, director.\r\n1993: 7 Premios BAFTA, incluyendo mejor película y director.\r\n1993: National Board of Review: Mejor película.\r\n1993:Círculo de Críticos de Nueva York:\r\nMejor película, actor sec. y fotografía\r\n1993: Asociación de Críticos de Los Angeles:\r\nMejor película, fotografía y diseño de prod.\r\n1993: Asociación de Críticos de Chicago:\r\n6 premios, incl. Mejor película. 7 nom.\r\n1993: Sindicato de Productores (PGA):Mejor película\r\n1993: Sindicato de Directores (DGA): Mejor director\r\n1993: Sindicato de Guionistas (WGA): Mejor guión adaptado\r\n1994: Premios Cesar: Nominada a la Mejor película extranjera\r\n1994: Premios David de Donatello:\r\nNominada a mejor película extranjera'
+                    caracteristicas: '3 Oscars y 1 premio BAFTA'
 
                 }, {
                     id: 8,
                     title: 'Ciudad de dios',
                     imagen: '../imagenes/8.jpg',
-                    rating: 5,
+                    rating: 4.2,
                     show: false,
                     pais: 'Brasil',
                     genero: 'Drama',
-                    rating: 5,
+                    director: 'Fernando Meirelles',
+                    año: '2002',
                     datos: '2002, Fernando Meirelles',
-                    caracteristicas: '\r\n7 Oscars incluyendo mejor película y director.\r\n1993:3 Globos de Oro: Película: drama, guión, director.\r\n1993: 7 Premios BAFTA, incluyendo mejor película y director.\r\n1993: National Board of Review: Mejor película.\r\n1993:Círculo de Críticos de Nueva York:\r\nMejor película, actor sec. y fotografía\r\n1993: Asociación de Críticos de Los Angeles:\r\nMejor película, fotografía y diseño de prod.\r\n1993: Asociación de Críticos de Chicago:\r\n6 premios, incl. Mejor película. 7 nom.\r\n1993: Sindicato de Productores (PGA):Mejor película\r\n1993: Sindicato de Directores (DGA): Mejor director\r\n1993: Sindicato de Guionistas (WGA): Mejor guión adaptado\r\n1994: Premios Cesar: Nominada a la Mejor película extranjera\r\n1994: Premios David de Donatello:\r\nNominada a mejor película extranjera'
+                    caracteristicas: '1 premio BAFTA'
 
                 }, {
                     id: 9,
@@ -257,9 +255,11 @@
                     show: false,
                     pais: 'Estados Unidos',
                     genero: 'Drama',
-                    rating: 5,
+                    rating: 4.2,
+                    director: 'Martin Scorsese',
+                    año: '1990',
                     datos: '1990, Martin Scorsese',
-                    caracteristicas: '\r\n7 Oscars incluyendo mejor película y director.\r\n1993:3 Globos de Oro: Película: drama, guión, director.\r\n1993: 7 Premios BAFTA, incluyendo mejor película y director.\r\n1993: National Board of Review: Mejor película.\r\n1993:Círculo de Críticos de Nueva York:\r\nMejor película, actor sec. y fotografía\r\n1993: Asociación de Críticos de Los Angeles:\r\nMejor película, fotografía y diseño de prod.\r\n1993: Asociación de Críticos de Chicago:\r\n6 premios, incl. Mejor película. 7 nom.\r\n1993: Sindicato de Productores (PGA):Mejor película\r\n1993: Sindicato de Directores (DGA): Mejor director\r\n1993: Sindicato de Guionistas (WGA): Mejor guión adaptado\r\n1994: Premios Cesar: Nominada a la Mejor película extranjera\r\n1994: Premios David de Donatello:\r\nNominada a mejor película extranjera'
+                    caracteristicas: '1 Oscar y 5 premios BAFTA'
 
                 }, {
                     id: 10,
@@ -268,9 +268,11 @@
                     show: false,
                     pais: 'Estados Unidos',
                     genero: 'Drama',
-                    rating: 5,
+                    rating: 4.2,
+                    director: 'Milos Forman',
+                    año: '1975',
                     datos: '1975, Milos Forman',
-                    caracteristicas: '\r\n7 Oscars incluyendo mejor película y director.\r\n1993:3 Globos de Oro: Película: drama, guión, director.\r\n1993: 7 Premios BAFTA, incluyendo mejor película y director.\r\n1993: National Board of Review: Mejor película.\r\n1993:Círculo de Críticos de Nueva York:\r\nMejor película, actor sec. y fotografía\r\n1993: Asociación de Críticos de Los Angeles:\r\nMejor película, fotografía y diseño de prod.\r\n1993: Asociación de Críticos de Chicago:\r\n6 premios, incl. Mejor película. 7 nom.\r\n1993: Sindicato de Productores (PGA):Mejor película\r\n1993: Sindicato de Directores (DGA): Mejor director\r\n1993: Sindicato de Guionistas (WGA): Mejor guión adaptado\r\n1994: Premios Cesar: Nominada a la Mejor película extranjera\r\n1994: Premios David de Donatello:\r\nNominada a mejor película extranjera'
+                    caracteristicas: '5 Oscars, 5 Globos de Oro y 6 premios BAFTA'
 
                 }, {
                     id: 11,
@@ -279,9 +281,11 @@
                     show: false,
                     pais: 'Estados Unidos',
                     genero: 'Drama',
-                    rating: 5,
+                    rating: 4.15,
+                    director: 'Tony Kaye',
+                    año: '1998',
                     datos: '1998, Tony Kaye',
-                    caracteristicas: '\r\n7 Oscars incluyendo mejor película y director.\r\n1993:3 Globos de Oro: Película: drama, guión, director.\r\n1993: 7 Premios BAFTA, incluyendo mejor película y director.\r\n1993: National Board of Review: Mejor película.\r\n1993:Círculo de Críticos de Nueva York:\r\nMejor película, actor sec. y fotografía\r\n1993: Asociación de Críticos de Los Angeles:\r\nMejor película, fotografía y diseño de prod.\r\n1993: Asociación de Críticos de Chicago:\r\n6 premios, incl. Mejor película. 7 nom.\r\n1993: Sindicato de Productores (PGA):Mejor película\r\n1993: Sindicato de Directores (DGA): Mejor director\r\n1993: Sindicato de Guionistas (WGA): Mejor guión adaptado\r\n1994: Premios Cesar: Nominada a la Mejor película extranjera\r\n1994: Premios David de Donatello:\r\nNominada a mejor película extranjera'
+                    caracteristicas: '-'
 
                 }, {
                     id: 12,
@@ -290,9 +294,11 @@
                     show: false,
                     pais: 'URSS',
                     genero: 'Aventuras',
-                    rating: 5,
+                    rating: 4.15,
+                    director: 'Akira Kurosawa',
+                    año: '1975',
                     datos: '1975, Akira Kurosawa',
-                    caracteristicas: '\r\n7 Oscars incluyendo mejor película y director.\r\n1993:3 Globos de Oro: Película: drama, guión, director.\r\n1993: 7 Premios BAFTA, incluyendo mejor película y director.\r\n1993: National Board of Review: Mejor película.\r\n1993:Círculo de Críticos de Nueva York:\r\nMejor película, actor sec. y fotografía\r\n1993: Asociación de Críticos de Los Angeles:\r\nMejor película, fotografía y diseño de prod.\r\n1993: Asociación de Críticos de Chicago:\r\n6 premios, incl. Mejor película. 7 nom.\r\n1993: Sindicato de Productores (PGA):Mejor película\r\n1993: Sindicato de Directores (DGA): Mejor director\r\n1993: Sindicato de Guionistas (WGA): Mejor guión adaptado\r\n1994: Premios Cesar: Nominada a la Mejor película extranjera\r\n1994: Premios David de Donatello:\r\nNominada a mejor película extranjera'
+                    caracteristicas: '1 Oscar'
 
                 }, {
                     id: 13,
@@ -301,21 +307,24 @@
                     show: false,
                     pais: 'Italia',
                     genero: 'Drama',
-                    rating: 5,
+                    rating: 4.15,
+                    director: 'Giuseppe Tornatore',
+                    año: '1988',
                     datos: '1988, Giuseppe Tornatore',
-                    caracteristicas: " 3 Oscars: Mejor película, Actor (Marlon Brando), Guión adaptado. 11[10*] nom.\r\n1972: 5 Globos de Oro: Película (Drama), Director, Actor (Brando), Guión y BSO\r\n1972: Premios BAFTA: Mejor música. 5 nominaciones, incluyendo Mejor actor (Brando)\r\n1972: Círculo de Críticos de Nueva York:\r\nMejor actor secundario (Duvall). 4 nominaciones\r\n1972: National Board of Review:\r\nMejor actor sec. (Pacino) y Mejores 10 films del año\r\n1972: Sindicato de Directores (DGA):\r\nMejor director\r\n1972: Sindicato de Guionistas (WGA): Mejor guión adaptado drama\r\n1972: Premios David di Donatello:\r\nMejor film extranjero y Premio Especial (Al Pacino)"
+                    caracteristicas: " 1 Oscar, 1 Globo de Oro y 5 premios BAFTA"
 
                 }, {
                     id: 14,
                     title: 'Érase una vez en América',
                     imagen: '../imagenes/14.jpg',
-                    rating: 5,
                     show: false,
                     pais: 'Estados Unidos',
                     genero: 'Drama',
-                    rating: 5,
+                    rating: 4.15,
+                    director: 'Sergio Leone',
+                    año: '1984',
                     datos: '1984, Sergio Leone',
-                    caracteristicas: '\r\n7 Oscars incluyendo mejor película y director.\r\n1993:3 Globos de Oro: Película: drama, guión, director.\r\n1993: 7 Premios BAFTA, incluyendo mejor película y director.\r\n1993: National Board of Review: Mejor película.\r\n1993:Círculo de Críticos de Nueva York:\r\nMejor película, actor sec. y fotografía\r\n1993: Asociación de Críticos de Los Angeles:\r\nMejor película, fotografía y diseño de prod.\r\n1993: Asociación de Críticos de Chicago:\r\n6 premios, incl. Mejor película. 7 nom.\r\n1993: Sindicato de Productores (PGA):Mejor película\r\n1993: Sindicato de Directores (DGA): Mejor director\r\n1993: Sindicato de Guionistas (WGA): Mejor guión adaptado\r\n1994: Premios Cesar: Nominada a la Mejor película extranjera\r\n1994: Premios David de Donatello:\r\nNominada a mejor película extranjera'
+                    caracteristicas: '2 premios BAFTA'
 
                 }, {
                     id: 15,
@@ -324,9 +333,11 @@
                     show: false,
                     pais: 'Estados Unidos',
                     genero: 'Thriller',
-                    rating: 5,
+                    rating: 4.1,
+                    director: 'David Fincher',
+                    año: '1995',
                     datos: '1995, David Fincher',
-                    caracteristicas: '\r\n7 Oscars incluyendo mejor película y director.\r\n1993:3 Globos de Oro: Película: drama, guión, director.\r\n1993: 7 Premios BAFTA, incluyendo mejor película y director.\r\n1993: National Board of Review: Mejor película.\r\n1993:Círculo de Críticos de Nueva York:\r\nMejor película, actor sec. y fotografía\r\n1993: Asociación de Críticos de Los Angeles:\r\nMejor película, fotografía y diseño de prod.\r\n1993: Asociación de Críticos de Chicago:\r\n6 premios, incl. Mejor película. 7 nom.\r\n1993: Sindicato de Productores (PGA):Mejor película\r\n1993: Sindicato de Directores (DGA): Mejor director\r\n1993: Sindicato de Guionistas (WGA): Mejor guión adaptado\r\n1994: Premios Cesar: Nominada a la Mejor película extranjera\r\n1994: Premios David de Donatello:\r\nNominada a mejor película extranjera'
+                    caracteristicas: '-'
 
                 }, {
                     id: 16,
@@ -335,9 +346,11 @@
                     show: false,
                     pais: 'Reino Unido',
                     genero: 'Drama',
-                    rating: 5,
+                    rating: 4.1,
+                    director: 'Roman Polanski',
+                    año: '2002',
                     datos: '2002, Roman Polanski',
-                    caracteristicas: '\r\n7 Oscars incluyendo mejor película y director.\r\n1993:3 Globos de Oro: Película: drama, guión, director.\r\n1993: 7 Premios BAFTA, incluyendo mejor película y director.\r\n1993: National Board of Review: Mejor película.\r\n1993:Círculo de Críticos de Nueva York:\r\nMejor película, actor sec. y fotografía\r\n1993: Asociación de Críticos de Los Angeles:\r\nMejor película, fotografía y diseño de prod.\r\n1993: Asociación de Críticos de Chicago:\r\n6 premios, incl. Mejor película. 7 nom.\r\n1993: Sindicato de Productores (PGA):Mejor película\r\n1993: Sindicato de Directores (DGA): Mejor director\r\n1993: Sindicato de Guionistas (WGA): Mejor guión adaptado\r\n1994: Premios Cesar: Nominada a la Mejor película extranjera\r\n1994: Premios David de Donatello:\r\nNominada a mejor película extranjera'
+                    caracteristicas: '3 Oscars y 2 premios BAFTA'
 
                 }, {
                     id: 17,
@@ -346,9 +359,11 @@
                     show: false,
                     pais: 'Estados Unidos',
                     genero: 'Bélico',
-                    rating: 5,
+                    rating: 4.1,
+                    director: 'Francis Ford Coppola',
+                    año: '1979',
                     datos: '1979, Francis Ford Coppola',
-                    caracteristicas: '\r\n7 Oscars incluyendo mejor película y director.\r\n1993:3 Globos de Oro: Película: drama, guión, director.\r\n1993: 7 Premios BAFTA, incluyendo mejor película y director.\r\n1993: National Board of Review: Mejor película.\r\n1993:Círculo de Críticos de Nueva York:\r\nMejor película, actor sec. y fotografía\r\n1993: Asociación de Críticos de Los Angeles:\r\nMejor película, fotografía y diseño de prod.\r\n1993: Asociación de Críticos de Chicago:\r\n6 premios, incl. Mejor película. 7 nom.\r\n1993: Sindicato de Productores (PGA):Mejor película\r\n1993: Sindicato de Directores (DGA): Mejor director\r\n1993: Sindicato de Guionistas (WGA): Mejor guión adaptado\r\n1994: Premios Cesar: Nominada a la Mejor película extranjera\r\n1994: Premios David de Donatello:\r\nNominada a mejor película extranjera'
+                    caracteristicas: '2 Oscars, 3 Globos de Oro y 2 premios BAFTA'
 
                 }, {
                     id: 18,
@@ -357,9 +372,11 @@
                     show: false,
                     pais: 'Estados Unidos',
                     genero: 'Western',
-                    rating: 5,
+                    rating: 4.1,
+                    director: 'Clint Eastwood',
+                    año: '1992',
                     datos: '1992, Clint Eastwood',
-                    caracteristicas: '\r\n7 Oscars incluyendo mejor película y director.\r\n1993:3 Globos de Oro: Película: drama, guión, director.\r\n1993: 7 Premios BAFTA, incluyendo mejor película y director.\r\n1993: National Board of Review: Mejor película.\r\n1993:Círculo de Críticos de Nueva York:\r\nMejor película, actor sec. y fotografía\r\n1993: Asociación de Críticos de Los Angeles:\r\nMejor película, fotografía y diseño de prod.\r\n1993: Asociación de Críticos de Chicago:\r\n6 premios, incl. Mejor película. 7 nom.\r\n1993: Sindicato de Productores (PGA):Mejor película\r\n1993: Sindicato de Directores (DGA): Mejor director\r\n1993: Sindicato de Guionistas (WGA): Mejor guión adaptado\r\n1994: Premios Cesar: Nominada a la Mejor película extranjera\r\n1994: Premios David de Donatello:\r\nNominada a mejor película extranjera'
+                    caracteristicas: '4 Oscars, 2 Globos de Oro y 1 premio BAFTA'
 
                 }, {
                     id: 19,
@@ -368,21 +385,24 @@
                     show: false,
                     pais: 'Estados Unidos',
                     genero: 'Drama',
-                    rating: 5,
+                    rating: 4.1,
+                    director: 'Brian De Palma',
+                    año: '1983',
                     datos: '1983, Brian De Palma',
-                    caracteristicas: " 3 Oscars: Mejor película, Actor (Marlon Brando), Guión adaptado. 11[10*] nom.\r\n1972: 5 Globos de Oro: Película (Drama), Director, Actor (Brando), Guión y BSO\r\n1972: Premios BAFTA: Mejor música. 5 nominaciones, incluyendo Mejor actor (Brando)\r\n1972: Círculo de Críticos de Nueva York:\r\nMejor actor secundario (Duvall). 4 nominaciones\r\n1972: National Board of Review:\r\nMejor actor sec. (Pacino) y Mejores 10 films del año\r\n1972: Sindicato de Directores (DGA):\r\nMejor director\r\n1972: Sindicato de Guionistas (WGA):\r\nMejor guión adaptado drama\r\n1972: Premios David di Donatello:\r\nMejor film extranjero y Premio Especial (Al Pacino)"
+                    caracteristicas: '-'
 
                 }, {
                     id: 20,
                     title: 'El silencio de los corderos',
                     imagen: '../imagenes/20.jpg',
-                    rating: 5,
                     show: false,
                     pais: 'Estados Unidos',
                     genero: 'Thriller',
-                    rating: 5,
+                    rating: 4.1,
+                    director: 'Jonathan Demme',
+                    año: '1991',
                     datos: '1991, Jonathan Demme',
-                    caracteristicas: '\r\n7 Oscars incluyendo mejor película y director.\r\n1993:3 Globos de Oro: Película: drama, guión, director.\r\n1993: 7 Premios BAFTA, incluyendo mejor película y director.\r\n1993: National Board of Review: Mejor película.\r\n1993:Círculo de Críticos de Nueva York:\r\nMejor película, actor sec. y fotografía\r\n1993: Asociación de Críticos de Los Angeles:\r\nMejor película, fotografía y diseño de prod.\r\n1993: Asociación de Críticos de Chicago:\r\n6 premios, incl. Mejor película. 7 nom.\r\n1993: Sindicato de Productores (PGA):Mejor película\r\n1993: Sindicato de Directores (DGA): Mejor director\r\n1993: Sindicato de Guionistas (WGA): Mejor guión adaptado\r\n1994: Premios Cesar: Nominada a la Mejor película extranjera\r\n1994: Premios David de Donatello:\r\nNominada a mejor película extranjera'
+                    caracteristicas: '5 Oscars, 1 Globo de Oro y 2 premios BAFTA'
 
                 }, {
                     id: 21,
@@ -391,9 +411,11 @@
                     show: false,
                     pais: 'Reino Unido',
                     genero: 'Intriga',
-                    rating: 5,
+                    rating: 4.1,
+                    director: 'Joseph L. Mankiewicz',
+                    año: '1972',
                     datos: '1972, Joseph L. Mankiewicz',
-                    caracteristicas: '\r\n7 Oscars incluyendo mejor película y director.\r\n1993:3 Globos de Oro: Película: drama, guión, director.\r\n1993: 7 Premios BAFTA, incluyendo mejor película y director.\r\n1993: National Board of Review: Mejor película.\r\n1993:Círculo de Críticos de Nueva York:\r\nMejor película, actor sec. y fotografía\r\n1993: Asociación de Críticos de Los Angeles:\r\nMejor película, fotografía y diseño de prod.\r\n1993: Asociación de Críticos de Chicago:\r\n6 premios, incl. Mejor película. 7 nom.\r\n1993: Sindicato de Productores (PGA):Mejor película\r\n1993: Sindicato de Directores (DGA): Mejor director\r\n1993: Sindicato de Guionistas (WGA): Mejor guión adaptado\r\n1994: Premios Cesar: Nominada a la Mejor película extranjera\r\n1994: Premios David de Donatello:\r\nNominada a mejor película extranjera'
+                    caracteristicas: '-'
 
                 }, {
                     id: 22,
@@ -402,9 +424,11 @@
                     show: false,
                     pais: 'Reino Unido',
                     genero: 'Drama',
-                    rating: 5,
+                    rating: 4.1,
+                    director: 'Stanley Kubrick',
+                    año: '1971',
                     datos: '1971, Stanley Kubrick',
-                    caracteristicas: '\r\n7 Oscars incluyendo mejor película y director.\r\n1993:3 Globos de Oro: Película: drama, guión, director.\r\n1993: 7 Premios BAFTA, incluyendo mejor película y director.\r\n1993: National Board of Review: Mejor película.\r\n1993:Círculo de Críticos de Nueva York:\r\nMejor película, actor sec. y fotografía\r\n1993: Asociación de Críticos de Los Angeles:\r\nMejor película, fotografía y diseño de prod.\r\n1993: Asociación de Críticos de Chicago:\r\n6 premios, incl. Mejor película. 7 nom.\r\n1993: Sindicato de Productores (PGA):Mejor película\r\n1993: Sindicato de Directores (DGA): Mejor director\r\n1993: Sindicato de Guionistas (WGA): Mejor guión adaptado\r\n1994: Premios Cesar: Nominada a la Mejor película extranjera\r\n1994: Premios David de Donatello:\r\nNominada a mejor película extranjera'
+                    caracteristicas: '-'
 
                 }, {
                     id: 23,
@@ -413,9 +437,11 @@
                     show: false,
                     pais: 'Estados Unidos',
                     genero: 'Drama',
-                    rating: 5,
+                    rating: 4.1,
+                    director: 'Robert Zemeckis',
+                    año: '1994',
                     datos: '1994, Robert Zemeckis',
-                    caracteristicas: '\r\n7 Oscars incluyendo mejor película y director.\r\n1993:3 Globos de Oro: Película: drama, guión, director.\r\n1993: 7 Premios BAFTA, incluyendo mejor película y director.\r\n1993: National Board of Review: Mejor película.\r\n1993:Círculo de Críticos de Nueva York:\r\nMejor película, actor sec. y fotografía\r\n1993: Asociación de Críticos de Los Angeles:\r\nMejor película, fotografía y diseño de prod.\r\n1993: Asociación de Críticos de Chicago:\r\n6 premios, incl. Mejor película. 7 nom.\r\n1993: Sindicato de Productores (PGA):Mejor película\r\n1993: Sindicato de Directores (DGA): Mejor director\r\n1993: Sindicato de Guionistas (WGA): Mejor guión adaptado\r\n1994: Premios Cesar: Nominada a la Mejor película extranjera\r\n1994: Premios David de Donatello:\r\nNominada a mejor película extranjera'
+                    caracteristicas: '6 Oscars, 3 Globos de Oro y 1 premio BAFTA'
 
                 }, {
                     id: 24,
@@ -424,9 +450,11 @@
                     show: false,
                     pais: 'Estados Unidos',
                     genero: 'Thriller',
-                    rating: 5,
+                    rating: 4.1,
+                    director: 'Todd Phillips',
+                    año: '2019',
                     datos: '2019, Todd Phillips',
-                    caracteristicas: '\r\n7 Oscars incluyendo mejor película y director.\r\n1993:3 Globos de Oro: Película: drama, guión, director.\r\n1993: 7 Premios BAFTA, incluyendo mejor película y director.\r\n1993: National Board of Review: Mejor película.\r\n1993:Círculo de Críticos de Nueva York:\r\nMejor película, actor sec. y fotografía\r\n1993: Asociación de Críticos de Los Angeles:\r\nMejor película, fotografía y diseño de prod.\r\n1993: Asociación de Críticos de Chicago:\r\n6 premios, incl. Mejor película. 7 nom.\r\n1993: Sindicato de Productores (PGA):Mejor película\r\n1993: Sindicato de Directores (DGA): Mejor director\r\n1993: Sindicato de Guionistas (WGA): Mejor guión adaptado\r\n1994: Premios Cesar: Nominada a la Mejor película extranjera\r\n1994: Premios David de Donatello:\r\nNominada a mejor película extranjera'
+                    caracteristicas: '2 Globos de Oro'
 
                 }, {
                     id: 25,
@@ -435,9 +463,11 @@
                     show: false,
                     pais: 'Estados Unidos',
                     genero: 'Drama',
-                    rating: 5,
+                    rating: 4.1,
+                    director: 'Clint Eastwood',
+                    año: '2008',
                     datos: '2008, Clint Eastwood',
-                    caracteristicas: " 3 Oscars: Mejor película, Actor (Marlon Brando), Guión adaptado. 11[10*] nom.\r\n1972: 5 Globos de Oro: Película (Drama), Director, Actor (Brando), Guión y BSO\r\n1972: Premios BAFTA: Mejor música. 5 nominaciones, incluyendo Mejor actor (Brando)\r\n1972: Círculo de Críticos de Nueva York: Mejor actor secundario (Duvall). 4 nominaciones\r\n1972: National Board of Review: Mejor actor sec. (Pacino) y Mejores 10 films del año\r\n1972: Sindicato de Directores (DGA): Mejor director\r\n1972: Sindicato de Guionistas (WGA): Mejor guión adaptado drama\r\n1972: Premios David di Donatello: Mejor film extranjero y Premio Especial (Al Pacino)"
+                    caracteristicas: "-"
 
                 }, {
                     id: 27,
@@ -447,9 +477,11 @@
                     show: false,
                     pais: 'Reino Unido',
                     genero: 'Comedia',
-                    rating: 4,
+                    rating: 3.95,
+                    director: 'Terry Jones',
+                    año: '1979',
                     datos: '1979, Terry Jones',
-                    caracteristicas: '\r\n7 Oscars incluyendo mejor película y director.\r\n1993:3 Globos de Oro: Película: drama, guión, director.\r\n1993: 7 Premios BAFTA, incluyendo mejor película y director.\r\n1993: National Board of Review: Mejor película.\r\n1993:Círculo de Críticos de Nueva York:\r\nMejor película, actor sec. y fotografía\r\n1993: Asociación de Críticos de Los Angeles:\r\nMejor película, fotografía y diseño de prod.\r\n1993: Asociación de Críticos de Chicago:\r\n6 premios, incl. Mejor película. 7 nom.\r\n1993: Sindicato de Productores (PGA):Mejor película\r\n1993: Sindicato de Directores (DGA): Mejor director\r\n1993: Sindicato de Guionistas (WGA): Mejor guión adaptado\r\n1994: Premios Cesar: Nominada a la Mejor película extranjera\r\n1994: Premios David de Donatello:\r\nNominada a mejor película extranjera'
+                    caracteristicas: '-'
 
                 }, {
                     id: 28,
@@ -458,9 +490,11 @@
                     show: false,
                     pais: 'España',
                     genero: 'Comedia',
-                    rating: 4,
+                    rating: 3.75,
+                    director: 'José Luis Cuerda',
+                    año: '1989',
                     datos: '1989, José Luis Cuerda',
-                    caracteristicas: '\r\n7 Oscars incluyendo mejor película y director.\r\n1993:3 Globos de Oro: Película: drama, guión, director.\r\n1993: 7 Premios BAFTA, incluyendo mejor película y director.\r\n1993: National Board of Review: Mejor película.\r\n1993:Círculo de Críticos de Nueva York:\r\nMejor película, actor sec. y fotografía\r\n1993: Asociación de Críticos de Los Angeles:\r\nMejor película, fotografía y diseño de prod.\r\n1993: Asociación de Críticos de Chicago:\r\n6 premios, incl. Mejor película. 7 nom.\r\n1993: Sindicato de Productores (PGA):Mejor película\r\n1993: Sindicato de Directores (DGA): Mejor director\r\n1993: Sindicato de Guionistas (WGA): Mejor guión adaptado\r\n1994: Premios Cesar: Nominada a la Mejor película extranjera\r\n1994: Premios David de Donatello:\r\nNominada a mejor película extranjera'
+                    caracteristicas: '-'
 
                 }, {
                     id: 29,
@@ -469,9 +503,11 @@
                     show: false,
                     pais: 'Reino Unido',
                     genero: 'Comedia',
-                    rating: 4,
-                    datos: '1975, Terry Jones ',
-                    caracteristicas: '\r\n7 Oscars incluyendo mejor película y director.\r\n1993:3 Globos de Oro: Película: drama, guión, director.\r\n1993: 7 Premios BAFTA, incluyendo mejor película y director.\r\n1993: National Board of Review: Mejor película.\r\n1993:Círculo de Críticos de Nueva York:\r\nMejor película, actor sec. y fotografía\r\n1993: Asociación de Críticos de Los Angeles:\r\nMejor película, fotografía y diseño de prod.\r\n1993: Asociación de Críticos de Chicago:\r\n6 premios, incl. Mejor película. 7 nom.\r\n1993: Sindicato de Productores (PGA):Mejor película\r\n1993: Sindicato de Directores (DGA): Mejor director\r\n1993: Sindicato de Guionistas (WGA): Mejor guión adaptado\r\n1994: Premios Cesar: Nominada a la Mejor película extranjera\r\n1994: Premios David de Donatello:\r\nNominada a mejor película extranjera'
+                    rating: 3.7,
+                    director: 'Terry Jones',
+                    año: '1975',
+                    datos: '1975, Terry Jones',
+                    caracteristicas: '-'
 
                 }, {
                     id: 30,
@@ -480,9 +516,11 @@
                     show: false,
                     pais: 'Estados Unidos',
                     genero: 'Thriller',
-                    rating: 5,
+                    rating: 4.05,
+                    director: 'Quentin Tarantino',
+                    año: '1992',
                     datos: '1992, Quentin Tarantino',
-                    caracteristicas: '\r\n7 Oscars incluyendo mejor película y director.\r\n1993:3 Globos de Oro: Película: drama, guión, director.\r\n1993: 7 Premios BAFTA, incluyendo mejor película y director.\r\n1993: National Board of Review: Mejor película.\r\n1993:Círculo de Críticos de Nueva York:\r\nMejor película, actor sec. y fotografía\r\n1993: Asociación de Críticos de Los Angeles:\r\nMejor película, fotografía y diseño de prod.\r\n1993: Asociación de Críticos de Chicago:\r\n6 premios, incl. Mejor película. 7 nom.\r\n1993: Sindicato de Productores (PGA):Mejor película\r\n1993: Sindicato de Directores (DGA): Mejor director\r\n1993: Sindicato de Guionistas (WGA): Mejor guión adaptado\r\n1994: Premios Cesar: Nominada a la Mejor película extranjera\r\n1994: Premios David de Donatello:\r\nNominada a mejor película extranjera'
+                    caracteristicas: '-'
 
                 }, {
                     id: 31,
@@ -491,9 +529,9 @@
                     show: false,
                     pais: 'Estados Unidos',
                     genero: 'Thriller',
-                    rating: 5,
+                    rating: 4.05,
                     datos: '2008, Chrisopher Nolan',
-                    caracteristicas: '\r\n7 Oscars incluyendo mejor película y director.\r\n1993:3 Globos de Oro: Película: drama, guión, director.\r\n1993: 7 Premios BAFTA, incluyendo mejor película y director.\r\n1993: National Board of Review: Mejor película.\r\n1993:Círculo de Críticos de Nueva York:\r\nMejor película, actor sec. y fotografía\r\n1993: Asociación de Críticos de Los Angeles:\r\nMejor película, fotografía y diseño de prod.\r\n1993: Asociación de Críticos de Chicago:\r\n6 premios, incl. Mejor película. 7 nom.\r\n1993: Sindicato de Productores (PGA):Mejor película\r\n1993: Sindicato de Directores (DGA): Mejor director\r\n1993: Sindicato de Guionistas (WGA): Mejor guión adaptado\r\n1994: Premios Cesar: Nominada a la Mejor película extranjera\r\n1994: Premios David de Donatello:\r\nNominada a mejor película extranjera'
+                    caracteristicas: '2 Oscars, 1 Globo de Oro y 1 premio BAFTA'
 
                 }, ],
 

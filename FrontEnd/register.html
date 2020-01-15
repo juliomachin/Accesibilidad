@@ -41,15 +41,16 @@
 <v-text-field v-model="user.name" light="light" prepend-icon="account_circle" label="Nombre" type="nombre"></v-text-field>
 <v-text-field v-model="user.date_birthday" light="light" prepend-icon="date_range" label="Fecha de Nacimiento" type="date"></v-text-field>
 <v-text-field v-model="user.email" light="light" prepend-icon="email" label="Email" type="email"></v-text-field>
-<v-text-field v-model="user.password" light="light" prepend-icon="lock" label="Password" type="password"></v-text-field>
+<v-text-field v-model="user.password2" light="light" prepend-icon="lock" label="Contraseña" type="password"></v-text-field>
+<v-text-field v-model="user.password" light="light" prepend-icon="lock" label="Repetir contraseña" type="password"></v-text-field>
 
 
-<v-btn v-if="options.isLoggingIn" @click.prevent="" block="block" type="submit">Registrarse</v-btn>
+<v-btn v-if="options.isLoggingIn" @click="registra()" block="block">Registrarse</v-btn>
 </v-form>
 </v-card-text>
 </v-card>
 <div v-if="options.isLoggingIn">¿Ya tienes cuenta?
-<v-btn light="light" @click="options.isLoggingIn = false" href="login.html">Login</v-btn>
+<v-btn light="light" href = "login.html">Login</v-btn>
 </div>
 </v-flex>
 </v-layout>
@@ -69,13 +70,33 @@ const vm = new Vue({
   el: '#app',
   data: {
     user: {
-      // email: 'admin@example.com',
-      // password: 'admin',
-      // name: 'John Doe',
+      email: '',
+      password: '',
+      password2:'',
+      name: '',
+      date_birthday:''
     },
     options: {
       isLoggingIn: true,
-      shouldStayLoggedIn: true } } });
+      shouldStayLoggedIn: true 
+    } 
+  },
+  methods:{
+    registra:function(){
+      if(this.user.email == '' || this.user.password == '' || this.user.password2 == '' || this.user.name == '' || this.user.date_birthday == ''){
+        alert("Error, uno de los campos esta vacío.")
+      }else{
+        if(this.user.password != this.user.password2){
+          alert("Error, las contraseñas no coinciden")
+        }else{
+          alert("Registrado con éxito.")
+          window.location = "login.html?email="+this.user.email+"&password="+this.user.password+"&name="+this.user.name
+        }
+      }
+    }
+  }
+
+});
 //# sourceURL=pen.js
     </script>
 </body>

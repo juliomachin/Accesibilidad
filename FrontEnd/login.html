@@ -40,10 +40,8 @@
                                         <template v-if="options.isLoggingIn">Logeate con tu Cuenta</template>
                                     </div>
                                     <v-form>
-                                        <v-text-field v-model="user.name" light="light" prepend-icon="person" label="Name"></v-text-field>
                                         <v-text-field v-model="user.email" light="light" prepend-icon="email" label="Email" type="email"></v-text-field>
                                         <v-text-field v-model="user.password" light="light" prepend-icon="lock" label="Password" type="password"></v-text-field>
-                                        <v-checkbox light="light" label="Mantenerse logueado" hide-details="hide-details"></v-checkbox>
                                         <v-btn @click="inicia">Entrar</v-btn>
                                     </v-form>
                                 </v-card-text>
@@ -76,20 +74,59 @@
                 options: {
                     isLoggingIn: true,
                     shouldStayLoggedIn: true
-                }
+                },
+
+                registrados:[
+                    {
+                        user:'a',
+                        email:'a@ejemplo.com',
+                        password:'1234',
+                        birthdate:'',
+                    },
+                    {
+                        user:'',
+                        email:'',
+                        password:'',
+                        birthdate:'',
+
+                    },
+                ]
             },
             methods: {
                 inicia: function() {
                     if (this.user.email == '' || this.user.password == '') {
                         alert("Error, uno de los campos esta vacio.")
-                    } else {
-                        window.location = "home.html"
-                            //this.valida
+                    }else{
+                        var i
+                        var size = Object.keys(this.registrados).length
+                        var correcto = false
+                        for(i=0; i<size; i++){
+                            if(this.user.email == this.registrados[i].email || this.user.password == this.registrados[i].password){
+                                correcto = true
+                                i = size + 1
+                            }
+                        }  
+
+                        const queryString = window.location.search;
+                        if(queryString != ""){
+                            const urlParams = new URLSearchParams(queryString);
+
+                            if(this.user.email == urlParams.get("email") && this.user.password == urlParams.get('password')){
+                                correcto = true;
+                            }
+                        }
+                        
+
+                        if(correcto == true){
+                            window.location = "home.html"
+                        }else{
+                            alert("Error, email o contraseña incorrectos")
+                        }
                     }
                 },
             }
         });
-        //# sourceURL=pen.js
+
     </script>
 </body>
 
